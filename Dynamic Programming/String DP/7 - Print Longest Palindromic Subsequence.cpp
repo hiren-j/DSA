@@ -2,7 +2,6 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // Method to find the LPS of given string, using 2D tabulation - O(N*M) & O(N*M)
