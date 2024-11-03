@@ -12,7 +12,7 @@ class TopDown {
         if(i == n)
             return 0;
 
-        // Edge case: If its not possible to repair all the robots then return INT_MAX as an indication of it
+        // Edge case: If its not possible to repair all the robots then return LLONG_MAX as an indication of it
         if(j == m)
             return LLONG_MAX;
 
@@ -34,7 +34,7 @@ class TopDown {
         if(i == n)
             return 0;
 
-        // Edge case: If its not possible to repair all the robots then return INT_MAX as an indication of it
+        // Edge case: If its not possible to repair all the robots then return LLONG_MAX as an indication of it
         if(j == m)
             return LLONG_MAX;
 
