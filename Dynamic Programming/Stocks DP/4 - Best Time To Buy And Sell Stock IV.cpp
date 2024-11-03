@@ -2,7 +2,6 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public:
     // Method to find the maximum profit you can achieve, using recursion with memoization - O(N*K) & O(N*K)
@@ -60,7 +59,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the maximum profit you can achieve, using 3D tabulation - O(N*2*K) & O(N*2*K)
