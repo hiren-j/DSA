@@ -61,7 +61,7 @@ public:
         sort(begin(robot), end(robot));
         sort(begin(factory), end(factory));  
 
-        // Stores the positions of factories
+        // Stores the position of factories
         vector<int> position;
         for(auto& info : factory) {
             int f_pos   = info[0];
@@ -141,7 +141,7 @@ public:
         sort(begin(robot), end(robot));
         sort(begin(factory), end(factory));  
 
-        // Stores the positions of factories
+        // Stores the position of factories
         vector<int> position;
         for(auto& info : factory) {
             int f_pos   = info[0];
