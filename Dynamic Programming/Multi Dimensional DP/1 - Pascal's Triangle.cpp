@@ -2,7 +2,6 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // Method to find the first "numRows" of pascal's triangle, using 2D tabulation - O(numRows^2) & O(numRows^2) 
