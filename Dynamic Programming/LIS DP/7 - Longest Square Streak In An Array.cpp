@@ -1,4 +1,4 @@
-// Program to find the length of the longest square streak in an array. A subsequence of an array is called a square streak if: The length of the subsequence is at least 2, and after sorting the subsequence, each element (except the first element) is the square of the previous number ~ coded by Hiren
+// Code to find the length of the longest square streak in an array. A subsequence of an array is called a square streak if: The length of the subsequence is at least 2, and after sorting the subsequence, each element (except the first element) is the square of the previous number ~ coded by Hiren
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
