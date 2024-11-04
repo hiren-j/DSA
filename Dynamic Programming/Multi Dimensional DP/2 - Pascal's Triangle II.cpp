@@ -1,7 +1,7 @@
 // Code to find the "rowIndex" row of the Pascal's triangle ~ coded by Hiren
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Class to implement the Bottom-up approach:
+    
 class BottomUp {
 public:
     // #1 Method to find the "rowIndex" row of the pascal's triangle, using 2D tabulation - O(rowIndex^2) & O(rowIndex^2) 
