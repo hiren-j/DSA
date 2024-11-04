@@ -1,4 +1,4 @@
-// Program to find the minimum number of elements to remove to make an array a mountain array ~ coded by Hiren
+// Code to find the minimum number of elements to remove to make an array a mountain array ~ coded by Hiren
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
