@@ -1,4 +1,4 @@
-// Program to find the minimum total distance traveled by all the robots ~ coded by Hiren
+// Code to find the minimum total distance traveled by all the robots ~ coded by Hiren
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
