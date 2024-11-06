@@ -6,7 +6,6 @@ NOTE: This problem is totally same as the previous one (Fibonacci Number). The e
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
     typedef long long ll;
     const int MOD = 1e9+7;
@@ -54,7 +53,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
     typedef long long ll;
     const int MOD = 1e9+7;
