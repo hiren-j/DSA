@@ -2,7 +2,6 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with memoization - O(N*N) & O(N*N)
@@ -57,7 +56,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with memoization - O(N*N) & O(N)
@@ -94,7 +92,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #3 Class to implement the Top-down approach:
 class TopDown_V3 {
 public:
     // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with memoization - O(N^3) & O(N^2)
@@ -132,7 +129,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Bottom-up approach:
 class BottomUp_V1 {
 public:
     // #1 Method to find the length of the longest arithmetic subsequence of given difference, using 2D tabulation - O(N*N) & O(N*N)
@@ -181,7 +177,6 @@ public:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Bottom-up approach:
 class BottomUp_V2 {
 public:
     // Method to find the length of the longest arithmetic subsequence of given difference, using 1D tabulation - O(N*N) & O(N)
@@ -205,7 +200,6 @@ public:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #3 Class to implement the Bottom-up approach:
 class BottomUp_V3 {
 public:
     // Method to find the length of the longest arithmetic subsequence of given difference, using unordered map - O(N) & O(N)
