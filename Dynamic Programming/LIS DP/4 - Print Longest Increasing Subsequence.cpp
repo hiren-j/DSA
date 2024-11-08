@@ -2,7 +2,6 @@
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // Method to find the longest increasing subsequence, using 1D tabulation - O(N*N) & O(N) 
