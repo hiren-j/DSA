@@ -4,7 +4,7 @@
 
 class TopDown_V1 {
 public:
-    // Method to find the length of the longest chain which can be formed, using recursion with memoization - O(N*N) & O(N*N)
+    // Method to find the length of the longest chain which can be formed, using recursion with 2D memoization - O(N*N) & O(N*N)
     int findLongestChain(vector<vector<int>>& pairs) {
         int n = pairs.size();
         sort(begin(pairs), end(pairs));
@@ -58,7 +58,7 @@ private:
 
 class TopDown_V2 {
 public:
-    // Method to find the length of the longest chain which can be formed, using recursion with memoization - O(N*N) & O(N)
+    // Method to find the length of the longest chain which can be formed, using recursion with 1D memoization - O(N*N) & O(N)
     int findLongestChain(vector<vector<int>>& pairs) {
         int n = pairs.size();
         sort(begin(pairs), end(pairs));
@@ -95,7 +95,7 @@ private:
 
 class TopDown_V3 {
 public:
-    // Method to find the length of the longest chain which can be formed, using recursion with memoization - O(N^3) & O(N^2)
+    // Method to find the length of the longest chain which can be formed, using recursion with 2D memoization - O(N^3) & O(N^2)
     int findLongestChain(vector<vector<int>>& pairs) {
         int n = pairs.size();
         sort(begin(pairs), end(pairs));
