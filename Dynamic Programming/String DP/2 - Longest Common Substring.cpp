@@ -2,7 +2,6 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the length of the longest common substring, using 2D tabulation - O(N*M) & O(N*M)
