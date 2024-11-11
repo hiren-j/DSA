@@ -96,7 +96,7 @@ private:
         // Stores the result value
         int maxSum = INT_MIN;
 
-        // Iterate and it possible then pick the index value
+        // Iterate and if possible then pick the index value
         for(int index = startIndex; index < n; ++index) 
             if(prevIndex == -1 || nums[prevIndex] <= nums[index]) {
                 int nextSum = solveWithMemo(memory, nums, n, index + 1, index, k - 1);
