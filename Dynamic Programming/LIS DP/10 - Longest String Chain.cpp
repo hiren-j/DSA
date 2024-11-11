@@ -9,7 +9,6 @@
 */
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the length of the longest word chain, using recursion with 2D memoization - O(N*N) & O(N*N)
@@ -83,7 +82,6 @@ private:
         return i == n;
     }
 
-private:
     // Method to choose the word based on the shorter length - O(1) & O(1)
     static bool comparator(const string& word1, const string& word2) {
         return word1.size() < word2.size();
@@ -92,7 +90,6 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the length of the longest word chain, using recursion with 1D memoization - O(N*N) & O(N)
@@ -148,7 +145,6 @@ private:
         return i == n;
     }
 
-private:
     // Method to choose the word based on the shorter length - O(1) & O(1)
     static bool comparator(const string& word1, const string& word2) {
         return word1.size() < word2.size();
@@ -158,7 +154,6 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the length of the longest word chain, using 2D tabulation - O(N*N*32) & O(N*N)
@@ -227,7 +222,6 @@ private:
         return i == n;
     }
 
-private:
     // Method to choose the word based on the shorter length - O(1) & O(1)
     static bool comparator(const string& word1, const string& word2) {
         return word1.size() < word2.size();
