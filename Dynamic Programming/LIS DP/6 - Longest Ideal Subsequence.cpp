@@ -2,7 +2,6 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the length of the longest ideal string, using recursion with memoization - O(N) & O(N)
@@ -56,7 +55,6 @@ private:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the length of the longest ideal string, using recursion with memoization - O(N*N) & O(N)
@@ -111,7 +109,6 @@ private:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the length of the longest ideal string, using 2D tabulation - O(N*123) & O(N*123)
