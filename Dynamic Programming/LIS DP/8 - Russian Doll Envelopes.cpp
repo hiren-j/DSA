@@ -4,7 +4,7 @@
     
 class TopDown_V1 {
 public:
-    // Method to find the maximum number of envelopes you can russian doll, using recursion with memoization - O(N*N) & O(N*N)
+    // Method to find the maximum number of envelopes you can russian doll, using recursion with 2D memoization - O(N*N) & O(N*N)
     int maxEnvelopes(vector<vector<int>>& envelopes) {
         int n = envelopes.size();
         sort(begin(envelopes), end(envelopes));
@@ -51,7 +51,7 @@ private:
   
 class TopDown_V2 {
 public:
-    // Method to find the maximum number of envelopes you can russian doll, using recursion with memoization - O(N*N) & O(N)
+    // Method to find the maximum number of envelopes you can russian doll, using recursion with 1D memoization - O(N*N) & O(N)
     int maxEnvelopes(vector<vector<int>>& envelopes) {
         int n = envelopes.size();
         sort(begin(envelopes), end(envelopes));
@@ -83,7 +83,7 @@ private:
 
 class TopDown_V3 {
 public:
-    // Method to find the maximum number of envelopes you can russian doll, using recursion with memoization - O(N^3) & O(N^2)
+    // Method to find the maximum number of envelopes you can russian doll, using recursion with 2D memoization - O(N^3) & O(N^2)
     int maxEnvelopes(vector<vector<int>>& envelopes) {
         int n = envelopes.size();
         sort(begin(envelopes), end(envelopes));
