@@ -30,8 +30,8 @@
   
 // Class to implement the Top-down approach:
 class DynamicProgramming {
-    unordered_map<TreeNode*, vector<TreeNode*>> adjList; // Stores the list of neighours of each node
-    map<pair<TreeNode*, TreeNode*>, int> memory;         // Memoization table
+    // Stores the list of neighours of each node
+    unordered_map<TreeNode*, vector<TreeNode*>> adjList; 
 
     void constructGraph(TreeNode* node, TreeNode* parent) {
         if(!node)
@@ -47,6 +47,9 @@ class DynamicProgramming {
     }
 
 private:
+    // Memoization table
+    map<pair<TreeNode*, TreeNode*>, int> memory; 
+
     int solveWithoutMemo(TreeNode* node, TreeNode* parent) {
         int maxPathSum = 0;
 
