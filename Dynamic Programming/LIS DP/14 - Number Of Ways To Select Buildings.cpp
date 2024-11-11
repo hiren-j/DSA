@@ -2,21 +2,20 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
-    typedef long long ll;
+    typedef long long LL;
 
 public:
     // Method to find the number of valid ways to select 3 buildings, using recursion with memoization - O(N) & O(N)
-    ll numberOfWays(string& s) {
+    LL numberOfWays(string& s) {
         int n = s.size();
-        vector<vector<vector<ll>>> memory(n, vector<vector<ll>>(3, vector<ll>(4, -1)));
+        vector<vector<vector<LL>>> memory(n, vector<vector<LL>>(3, vector<LL>(4, -1)));
         return solveWithMemo(memory, s, n, 0, '2', 3);
     }
 
 private:
     // O(2*N*3*4) & O(N*3*4 + N)
-    ll solveWithMemo(vector<vector<vector<ll>>>& memory, const string& s, int n, int index, char prevBuilding, int k) {
+    LL solveWithMemo(vector<vector<vector<LL>>>& memory, const string& s, int n, int index, char prevBuilding, int k) {
         // Edge case: If you've selected 3 buildings then you've got one valid way
         if(k == 0)
             return 1;
@@ -30,8 +29,8 @@ private:
             return memory[index][prevBuilding - '0'][k];
 
         // There are always two possibilities to perform at each building
-        ll currSkip   = solveWithMemo(memory, s, n, index + 1, prevBuilding, k); // Is to skip it
-        ll currSelect = 0;                                                       // Is to select it 
+        LL currSkip   = solveWithMemo(memory, s, n, index + 1, prevBuilding, k); // Is to skip it
+        LL currSelect = 0;                                                       // Is to select it 
 
         // If the previous and current building is not same then select the current building
         if(prevBuilding == '2' || prevBuilding != s[index])
@@ -42,7 +41,7 @@ private:
     }
 
     // O(2^N) & O(N)
-    ll solveWithoutMemo(const string& s, int n, int index, char prevBuilding, int k) {
+    LL solveWithoutMemo(const string& s, int n, int index, char prevBuilding, int k) {
         // Edge case: If you've selected 3 buildings then you've got one valid way
         if(k == 0)
             return 1;
@@ -52,8 +51,8 @@ private:
             return 0;
 
         // There are always two possibilities to perform at each building
-        ll currSkip   = solveWithoutMemo(s, n, index + 1, prevBuilding, k); // Is to skip it
-        ll currSelect = 0;                                                  // Is to select it
+        LL currSkip   = solveWithoutMemo(s, n, index + 1, prevBuilding, k); // Is to skip it
+        LL currSelect = 0;                                                  // Is to select it
 
         // If the previous and current building is not same then select the current building
         if(prevBuilding == '2' || prevBuilding != s[index])
@@ -66,21 +65,20 @@ private:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
-    typedef long long ll;
+    typedef long long LL;
 
 public:
     // Method to find the number of valid ways to select 3 buildings, using recursion with memoization - O(N*N) & O(N)
-    ll numberOfWays(string& s) {
+    LL numberOfWays(string& s) {
         int n = s.size();
-        vector<vector<vector<ll>>> memory(n, vector<vector<ll>>(3, vector<ll>(4, -1)));
+        vector<vector<vector<LL>>> memory(n, vector<vector<LL>>(3, vector<LL>(4, -1)));
         return solveWithMemo(memory, s, n, 0, '2', 3);
     }
 
 private:
     // O(N*N*3*4) & O(N*3*4 + N)
-    ll solveWithMemo(vector<vector<vector<ll>>>& memory, const string& s, int n, int startIndex, char prevBuilding, int k) {
+    LL solveWithMemo(vector<vector<vector<LL>>>& memory, const string& s, int n, int startIndex, char prevBuilding, int k) {
         // Edge case: If you've selected 3 buildings then you've got one valid way
         if(k == 0)
             return 1;
@@ -94,7 +92,7 @@ private:
             return memory[startIndex][prevBuilding - '0'][k];
 
         // Stores the result value
-        ll count = 0;
+        LL count = 0;
 
         // Iterate and if the previous and index building is not same then select the index building
         for(int index = startIndex; index < n; ++index)
@@ -110,17 +108,16 @@ private:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
-    typedef long long ll;
+    typedef long long LL;
 
 public:
     // #1 Method to find the number of valid ways to select 3 buildings, using 3D tabulation - O(N*3*3) & O(N*3*4)
-    ll numberOfWays_V1(const string& s) {
+    LL numberOfWays_V1(const string& s) {
         int n = s.size();
 
         // 3D DP table
-        vector<vector<vector<ll>>> dp(n + 1, vector<vector<ll>>(3, vector<ll>(4, 0)));
+        vector<vector<vector<LL>>> dp(n + 1, vector<vector<LL>>(3, vector<LL>(4, 0)));
 
         // Initialize the first edge case: If you've selected 3 buildings then you've got one valid way
         for(int index = 0; index <= n; ++index)
@@ -131,8 +128,8 @@ public:
         for(int index = n-1; index >= 0; --index) {
             for(char prevBuilding = '0'; prevBuilding <= '2'; ++prevBuilding) {
                 for(int k = 1; k <= 3; ++k) {
-                    ll currSkip   = dp[index + 1][prevBuilding - '0'][k];
-                    ll currSelect = 0;
+                    LL currSkip   = dp[index + 1][prevBuilding - '0'][k];
+                    LL currSelect = 0;
                     if(prevBuilding == '2' || prevBuilding != s[index]) {
                         currSelect = dp[index + 1][s[index] - '0'][k - 1];
                     }
@@ -146,11 +143,11 @@ public:
     }
 
     // #2 Method to find the number of valid ways to select 3 buildings, using 2D tabulation - O(N*3*3) & O(2*3*4)
-    ll numberOfWays_V2(const string& s) {
+    LL numberOfWays_V2(const string& s) {
         int n = s.size();
 
         // 2D DP tables
-        vector<vector<ll>> nextRow(3, vector<ll>(4, 0)), idealRow(3, vector<ll>(4, 0));
+        vector<vector<LL>> nextRow(3, vector<LL>(4, 0)), idealRow(3, vector<LL>(4, 0));
 
         // Initialize the edge case: If you've selected 3 buildings then you've got one valid way
         for(char prevBuilding = '0'; prevBuilding <= '2'; ++prevBuilding)
@@ -161,8 +158,8 @@ public:
             for(char prevBuilding = '0'; prevBuilding <= '2'; ++prevBuilding) {
                 idealRow[prevBuilding - '0'][0] = 1;
                 for(int k = 1; k <= 3; ++k) {
-                    ll currSkip   = nextRow[prevBuilding - '0'][k];
-                    ll currSelect = 0;
+                    LL currSkip   = nextRow[prevBuilding - '0'][k];
+                    LL currSelect = 0;
                     if(prevBuilding == '2' || prevBuilding != s[index]) {
                         currSelect = nextRow[s[index] - '0'][k - 1];
                     }
