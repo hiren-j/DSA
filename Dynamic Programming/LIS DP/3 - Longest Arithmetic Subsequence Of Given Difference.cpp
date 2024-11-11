@@ -4,7 +4,7 @@
 
 class TopDown_V1 {
 public:
-    // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with memoization - O(N*N) & O(N*N)
+    // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with 2D memoization - O(N*N) & O(N*N)
     int longestSubsequence(vector<int>& nums, int difference) {
         int n = nums.size();
         vector<vector<int>> memory(n, vector<int>(n + 1, -1));
@@ -58,7 +58,7 @@ private:
     
 class TopDown_V2 {
 public:
-    // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with memoization - O(N*N) & O(N)
+    // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with 1D memoization - O(N*N) & O(N)
     int longestSubsequence(vector<int>& nums, int difference) {
         int n = nums.size();
         vector<int> memory(n + 1, -1);
@@ -94,7 +94,7 @@ private:
 
 class TopDown_V3 {
 public:
-    // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with memoization - O(N^3) & O(N^2)
+    // Method to find the length of the longest arithmetic subsequence of given difference, using recursion with 2D memoization - O(N^3) & O(N^2)
     int longestSubsequence(vector<int>& nums, int difference) {
         int n = nums.size();
         vector<vector<int>> memory(n, vector<int>(n + 1, -1));
