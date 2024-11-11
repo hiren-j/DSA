@@ -34,7 +34,7 @@ private:
         // If possible then pick the index value
         if(prevIndex == -1 || nums[prevIndex] <= nums[index]) {
             int nextSum = solveWithMemo(memory, nums, n, index + 1, index, k - 1);
-            currTake    = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
+            currTake = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
         }
         
         // Store the result value to the memoization table and then return it
@@ -58,7 +58,7 @@ private:
         // If possible then pick the index value
         if(prevIndex == -1 || nums[prevIndex] <= nums[index]) {
             int nextSum = solveWithoutMemo(nums, n, index + 1, index, k - 1);
-            currTake    = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
+            currTake = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
         }
 
         // As we're striving for the maximum possible sum hence return the maximum value 
@@ -134,12 +134,10 @@ public:
                 for(int length = 1; length <= k; ++length) {
                     int currSkip = dp[index + 1][prevIndex + 1][length];
                     int currTake = INT_MIN;
-
                     if(prevIndex == -1 || nums[prevIndex] <= nums[index]) {
                         int nextSum = dp[index + 1][index + 1][length - 1];
-                        currTake    = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
+                        currTake = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
                     }
-
                     dp[index][prevIndex + 1][length] = max(currSkip, currTake);
                 }
             }
@@ -169,12 +167,10 @@ public:
                 for(int length = 1; length <= k; ++length) {
                     int currSkip = nextRow[prevIndex + 1][length];
                     int currTake = INT_MIN;
-
                     if(prevIndex == -1 || nums[prevIndex] <= nums[index]) {
                         int nextSum = nextRow[index + 1][length - 1];
-                        currTake       = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
+                        currTake = (nextSum != INT_MIN) ? nums[index] + nextSum : INT_MIN;
                     }
-
                     idealRow[prevIndex + 1][length] = max(currSkip, currTake);
                 }
             }
