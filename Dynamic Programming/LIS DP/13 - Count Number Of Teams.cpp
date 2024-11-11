@@ -2,7 +2,6 @@
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the number of teams you can form under the given conditions, using recursion with memoization - O(N^2) & O(N^2)
@@ -69,7 +68,6 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the number of teams you can form under the given conditions, using recursion with memoization - O(N^3) & O(N^2)
@@ -115,14 +113,13 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // Method to find the number of teams you can form under the given conditions, using 2D and 3D tabulation :-
     int numTeams(vector<int>& rating) {
         n = rating.size();
-        int countIncreasingSubseqLen3 = solveUsingTabulation_V1(rating, 3, true);
-        int countDecreasingSubseqLen3 = solveUsingTabulation_V1(rating, 3, false);
+        int countIncreasingSubseqLen3 = solveUsing2DTable(rating, 3, true);
+        int countDecreasingSubseqLen3 = solveUsing2DTable(rating, 3, false);
         return countIncreasingSubseqLen3 + countDecreasingSubseqLen3;
     }
 
@@ -130,7 +127,7 @@ private:
     int n;
 
     // O(N*N*3) & O(2*N*4)
-    int solveUsingTabulation_V1(vector<int>& rating, int k, bool toFindIncreasing) {
+    int solveUsing2DTable(vector<int>& rating, int k, bool toFindIncreasing) {
         // 2D DP tables
         vector<vector<int>> nextRow(n + 1, vector<int>(4, 0)), idealRow(n + 1, vector<int>(4, 0));
         
@@ -159,7 +156,7 @@ private:
     }
 
     // O(N*N*3) & O(N*N*4)
-    int solveUsingTabulation_V2(vector<int>& rating, int k, bool toFindIncreasing) {
+    int solveUsing3DTable(vector<int>& rating, int k, bool toFindIncreasing) {
         // 3D DP table
         vector<vector<vector<int>>> dp(n + 1, vector<vector<int>>(n + 1, vector<int>(4, 0)));
 
