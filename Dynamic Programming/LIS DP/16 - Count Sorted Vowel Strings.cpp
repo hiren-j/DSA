@@ -73,13 +73,11 @@ public:
         for(int steps = 1; steps <= n; ++steps) {
             for(char prevLetter = 'a'; prevLetter <= 'w'; ++prevLetter) {
                 int count = 0;
-
                 for(char v : vowels) {
                     if(prevLetter == 'w' || prevLetter <= v) {
                         count += dp[steps - 1][v - 'a'];
                     }
                 }
-
                 dp[steps][prevLetter - 'a'] = count;
             }
         }
@@ -101,13 +99,11 @@ public:
         for(int steps = 1; steps <= n; ++steps) {
             for(char prevLetter = 'a'; prevLetter <= 'w'; ++prevLetter) {
                 int count = 0;
-
                 for(char v : vowels) {
                     if(prevLetter == 'w' || prevLetter <= v) {
                         count += prevRow[v - 'a'];
                     }
                 }
-
                 idealRow[prevLetter - 'a'] = count;
             }
             prevRow = idealRow;
