@@ -3,16 +3,16 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class TopDown {
-    typedef long long ll;
+    typedef long long LL;
     int n;
 
     // O(2^N) & O(N)
-    ll solveWithoutMemo(vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
+    LL solveWithoutMemo(vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
         // Edge case: If you've exhausted all the energy boosts then you can't gain more energy
         if(idx == n)
             return 0;
 
-        ll maxEnergy = 0;
+        LL maxEnergy = 0;
         
         // If its time to consume energyDrink A, then you've two options to perform on the energy boosts of it
         if(useArr1) {
@@ -29,7 +29,7 @@ class TopDown {
     }
 
     // O(2 * N*2) & O(N*2 + N)
-    ll solveWithMemo(vector<vector<ll>>& memory, vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
+    LL solveWithMemo(vector<vector<LL>>& memory, vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
         // Edge case: If you've exhausted all the energy boosts then you can't gain more energy
         if(idx == n)
             return 0;
@@ -38,7 +38,7 @@ class TopDown {
         if(memory[idx][useArr1] != -1)
             return memory[idx][useArr1];
 
-        ll maxEnergy = 0;
+        LL maxEnergy = 0;
         
         // If its time to consume energyDrink A, then you've two options to perform on the energy boosts of it
         if(useArr1) {
@@ -57,11 +57,11 @@ class TopDown {
 
 public:
     // Method to find the maximum total energy boost you can gain, using recursion with memoization - O(N) & O(N)
-    ll maxEnergyBoost(vector<int>& arr1, vector<int>& arr2) {
+    LL maxEnergyBoost(vector<int>& arr1, vector<int>& arr2) {
         n = arr1.size();
-        vector<vector<ll>> memory1(n, vector<ll>(2, -1)), memory2(n, vector<ll>(2, -1));
-        ll maxEnergy1 = solveWithMemo(memory1, arr1, arr2, 0, 1);
-        ll maxEnergy2 = solveWithMemo(memory2, arr1, arr2, 0, 0);
+        vector<vector<LL>> memory1(n, vector<LL>(2, -1)), memory2(n, vector<LL>(2, -1));
+        LL maxEnergy1 = solveWithMemo(memory1, arr1, arr2, 0, 1);
+        LL maxEnergy2 = solveWithMemo(memory2, arr1, arr2, 0, 0);
         return max(maxEnergy1, maxEnergy2);
     }
 };
@@ -69,18 +69,18 @@ public:
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class BottomUp {
-    typedef long long ll;
+    typedef long long LL;
     int n;
 
     // O(N*2) & O(N*2)
-    ll solveUsing2DTable(vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
+    LL solveUsing2DTable(vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
         // 2D DP table
-        vector<vector<ll>> dp(n + 1, vector<ll>(2, 0));
+        vector<vector<LL>> dp(n + 1, vector<LL>(2, 0));
 
         // Fill the table
         for(int idx = n-1; idx >= 0; --idx) {
             for(int col = (useArr1 == 1 ? 0 : 1); (useArr1 == 1 ? col <= 1 : col >= 0); (useArr1 == 1 ? col++ : col--)) {   
-                ll maxEnergy = 0;
+                LL maxEnergy = 0;
 
                 if(col) {
                     maxEnergy = arr1[idx] + dp[idx + 1][1];
@@ -100,14 +100,14 @@ class BottomUp {
     }
 
     // O(N*2) & O(1)
-    ll solveUsing1DTable(vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
+    LL solveUsing1DTable(vector<int>& arr1, vector<int>& arr2, int idx, int useArr1) {
         // 1D DP tables
-        vector<ll> nextRow(2, 0), currRow(2, 0);
+        vector<LL> nextRow(2, 0), currRow(2, 0);
 
         // Fill the table
         for(int idx = n-1; idx >= 0; --idx) {
             for(int col = (useArr1 == 1 ? 0 : 1); (useArr1 == 1 ? col <= 1 : col >= 0); (useArr1 == 1 ? col++ : col--)) {   
-                ll maxEnergy = 0;
+                LL maxEnergy = 0;
 
                 if(col) {
                     maxEnergy = arr1[idx] + nextRow[1];
@@ -129,10 +129,10 @@ class BottomUp {
 
 public:
     // Method to find the maximum total energy boost you can gain, using tabulation :-
-    ll maxEnergyBoost(vector<int>& arr1, vector<int>& arr2) {
+    LL maxEnergyBoost(vector<int>& arr1, vector<int>& arr2) {
         n = arr1.size();
-        ll maxEnergy1 = solveUsing1DTable(arr1, arr2, 0, 1);
-        ll maxEnergy2 = solveUsing1DTable(arr1, arr2, 0, 0);
+        LL maxEnergy1 = solveUsing1DTable(arr1, arr2, 0, 1);
+        LL maxEnergy2 = solveUsing1DTable(arr1, arr2, 0, 0);
         return max(maxEnergy1, maxEnergy2);
     }
 };
