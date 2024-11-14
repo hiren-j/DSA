@@ -2,7 +2,6 @@
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public: 
     // Method to determine if you can partition the array in the specified way, using recursion with memoization - O(N*S) & O(N*S) : Where S let be the sum
@@ -53,7 +52,6 @@ private:
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public: 
     // Method to determine if you can partition the array in the specified way, using recursion with memoization - O(N*N*S) & O(N*S)
@@ -102,7 +100,6 @@ private:
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public: 
     // #1 Method to determine if you can partition the array in the specified way, using 2D tabulation - O(N*S) & O(N*S)
