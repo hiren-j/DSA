@@ -1,8 +1,7 @@
 // Code to count the total number of partitions in which S1 is greater than or equal to S2 and the difference between S1 and S2 is equal to D ~ coded by Hiren
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// Class to implement the Top-down approach:    
+ 
 class TopDown {
     #define MOD 1000000007
 
@@ -55,7 +54,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
     #define MOD 1000000007
 
