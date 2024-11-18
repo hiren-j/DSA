@@ -62,7 +62,7 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
+// #1 Class to implement the Bottom-up approach:
 class BottomUp_V1 {
 public:
     // #1 Method to find the minimum sum of a falling path with non zero shifts, using 2D tabulation - O(N^3) & O(N^2)
