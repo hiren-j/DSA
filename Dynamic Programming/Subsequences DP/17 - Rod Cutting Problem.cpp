@@ -2,7 +2,6 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the maximum obtainable value, using recursion with memoization - O(N*N) & O(N*N)
@@ -67,7 +66,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the maximum obtainable value, using recursion with memoization - O(N*N*N) & O(N*N)
@@ -133,7 +131,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the maximum obtainable value, using 2D tabulation - O(N*N) & O(N*N)
