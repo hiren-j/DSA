@@ -2,7 +2,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the minimum number of coins to make the change for given cents, using recursion with memoization - O(N*C) & O(N*C) : Where C let be the cents
@@ -68,7 +67,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the minimum number of coins to make the change for given cents, using recursion with memoization - O(N*N*C) & O(N*C)
@@ -133,7 +131,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the minimum number of coins to make the change for given cents, using 2D tabulation - O(N*C) & O(N*C)
