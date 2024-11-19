@@ -2,7 +2,6 @@
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the length of the longest subsequence which sums to target, using recursion with memoization - O(N*T) & O(N*T) : Where T let be the target
@@ -69,7 +68,6 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the length of the longest subsequence which sums to target, using recursion with memoization - O(N*N*T) & O(N*T)
@@ -139,7 +137,6 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the length of the longest subsequence which sums to target, using 2D tabulation - O(N*T) & O(N*T)
