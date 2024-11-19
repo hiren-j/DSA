@@ -2,7 +2,6 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the minimum cost, using recursion with memoization - O(N*W) & O(N*W)
@@ -68,7 +67,6 @@ private:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the minimum cost, using recursion with memoization - O(N*N*W) & O(N*W)
@@ -141,7 +139,6 @@ private:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the minimum cost, using 2D tabulation - O(N*W) & O(N*W)
