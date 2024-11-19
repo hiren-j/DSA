@@ -87,7 +87,7 @@ public:
         return dp[N][0][0];
     }
 
-    // #2 Method to find the total number of specified attendance records of length N, using 2D tabulation - O(N*2*3) & O(3*4)
+    // #2 Method to find the total number of specified attendance records of length N, using 2D tabulation - O(N*2*3) & O(2*3*4)
     int checkRecord_V2(int N) {
         // 2D DP tables
         vector<vector<int>> prevRow(3, vector<int>(4, 0)), currRow(3, vector<int>(4, 0));
