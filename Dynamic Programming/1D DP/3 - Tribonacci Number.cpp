@@ -2,7 +2,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public:
     // Method to find the Nth number of the tribonacci sequence, using recursion with memoization - O(N) & O(N)
@@ -39,7 +38,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the Nth number of the sequence, using 1D tabulation - O(N) & O(N)
