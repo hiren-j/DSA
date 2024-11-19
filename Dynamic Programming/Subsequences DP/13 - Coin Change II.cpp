@@ -2,7 +2,6 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Top-down approach:
 class TopDown_V1 {
 public:
     // Method to find the number of combinations that make up the given amount, using recursion with memoization - O(N*A) & O(N*A) : Where A let be the amount
@@ -64,7 +63,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Top-down approach:
 class TopDown_V2 {
 public:
     // Method to find the number of combinations that make up the given amount, using recursion with memoization - O(N*N*A) & O(N*A)
@@ -123,7 +121,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the number of combinations that make up the given amount, using 2D tabulation - O(N*A) & O(N*A)
