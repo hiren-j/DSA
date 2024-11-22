@@ -51,8 +51,8 @@ private:
         // Else when it's possible to sell the share then we have two possibilities on the day
         else {
             int currSell = max(prices[day], solveWithoutMemo(prices, n, day + 1, true)); // Is to sell the share at the current price
-            int currSkip = solveWithoutMemo(prices, n, day + 1, false);              // Is to skip the sell at the current price
-            return max(currSell, currSkip);                                          // As we're striving for the maximum profit hence return the maximum value
+            int currSkip = solveWithoutMemo(prices, n, day + 1, false);                  // Is to skip the sell at the current price
+            return max(currSell, currSkip);                                              // As we're striving for the maximum profit hence return the maximum value
         }
     }
 };
