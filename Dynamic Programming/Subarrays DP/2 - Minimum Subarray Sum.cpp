@@ -51,7 +51,7 @@ class TopDown {
 
 public:  
     // Method to find the maximum sum of a subarray, using recursion with memoization - O(N) & O(N)
-    int maxSubArray(vector<int>& nums) {
+    int minSubArray(vector<int>& nums) {
         n = nums.size();
         vector<vector<int>> memory(n, vector<int>(2, -1));
         return solveWithMemo(memory, nums, 0, false);
@@ -63,7 +63,7 @@ public:
 class BottomUp {
 public:
     // #1 Method to find the maximum sum of a subarray, using 2D tabulation - O(N*2) & O(N*2)
-    int maxSubArray_V1(vector<int>& nums) {
+    int minSubArray_V1(vector<int>& nums) {
         int n = nums.size();
 
         // 2D DP table
@@ -94,7 +94,7 @@ public:
     }
 
     // #2 Method to find the maximum sum of a subarray, using 1D tabulation - O(N*2) & O(2*2)
-    int maxSubArray_V2(vector<int>& nums) {
+    int minSubArray_V2(vector<int>& nums) {
         int n = nums.size();
 
         // 1D DP tables
@@ -131,8 +131,8 @@ public:
 class KadaneAlgorithm {
 public: 
     // Method to find the maximum sum of a subarray - O(N) & O(1)
-    int maxSubArray(vector<int>& nums) {
-        int maxEnding = 0; // Represents the minimum sum of a subarray among all the subarrays ending at an index
+    int minSubArray(vector<int>& nums) {
+        int minEnding = 0; // Represents the minimum sum of a subarray among all the subarrays ending at an index
         int result = INT_MAX;
 
         // Note: If you're on a index then you've two possibilities on it: 
@@ -140,8 +140,8 @@ public:
         // 2. Pick the index element as a part of the minimum subarray seen till its previous index
 
         for(int num : nums) {
-            maxEnding = min(maxEnding + num, num);
-            result = min(result, maxEnding);     
+            minEnding = min(minEnding + num, num);
+            result = min(result, minEnding);     
         }
 
         return result;
@@ -151,4 +151,4 @@ public:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Topics: Array | Divide and Conquer | Dynamic Programming 
-Link  : https://leetcode.com/problems/maximum-subarray/description/
+Link  : https://www.geeksforgeeks.org/problems/smallest-sum-contiguous-subarray/1
