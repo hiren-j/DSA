@@ -7,7 +7,7 @@ class TopDown {
 
     // O(2^N) & O(N)
     int solveWithoutMemo(vector<int>& nums, int index, bool prevPick) {
-        // Edge case: If all the elements are exhausted and previously if you've picked any subarray then return 0 else INT_MIN 
+        // Edge case: If elements are exhausted and previously if you've picked any subarray then return 0 else INT_MIN 
         if(index == n)
             return (prevPick) ? 0 : INT_MIN;
 
@@ -27,7 +27,7 @@ class TopDown {
 
     // O(2*N*2) & O(N*2 + N)
     int solveWithMemo(vector<vector<int>>& memory, vector<int>& nums, int index, bool prevPick) {
-        // Edge case: If all the elements are exhausted and previously if you've picked any subarray then return 0 else INT_MIN 
+        // Edge case: If elements are exhausted and previously if you've picked any subarray then return 0 else INT_MIN 
         if(index == n)
             return (prevPick) ? 0 : INT_MIN;
 
