@@ -2,7 +2,6 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public: 
     // Method to find the maximum points the geek can earn, using recursion with memoization - O(N) & O(N)
@@ -61,7 +60,6 @@ private:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// #1 Class to implement the Bottom-up approach:
 class BottomUp_V1 {
 public: 
     // #1 Method to find the maximum points the geek can earn, using 2D tabulation - O(N*5*3) & O(N*5)
@@ -114,7 +112,6 @@ public:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Bottom-up approach:
 class BottomUp_V2 {
 public:
     // Method to find the maximum points the geek can earn, using constant auxiliary space - O(N*3) & O(1)
