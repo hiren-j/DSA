@@ -2,7 +2,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public:
     // Method to find the maximum amount of money you can rob, using recursion with memoization - O(N) & O(N)
@@ -59,7 +58,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Bottom-up approach:
 class BottomUp_V1 {
 public:
     // Method to find the maximum amount of money you can rob, using 1D tabulation :-
@@ -128,7 +126,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Bottom-up approach:
 class BottomUp_V2 {
 public:
     // Method to find the maximum amount of money you can rob, using 1D tabulation - O(N) & O(N)
@@ -168,7 +165,6 @@ public:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #3 Class to implement the Bottom-up approach:
 class BottomUp_V3 {
 public:
     // Method to find the maximum amount of money you can rob, using constant auxiliary space - O(N) & O(1)
