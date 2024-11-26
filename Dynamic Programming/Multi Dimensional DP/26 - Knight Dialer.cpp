@@ -2,7 +2,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
     const int MOD = 1e9+7;
 
@@ -66,8 +65,7 @@ class TopDown {
 public:
     // Method to find how many distinct phone numbers of length N you can dial, using recursion with memoization - O(N) & O(N)
     int knightDialer(int N) {
-        // Stores the result value
-        int resCount = 0;
+        int result = 0;
         
         // 3D memoization table
         vector<vector<vector<int>>> memory(N, vector<vector<int>>(4, vector<int>(3, -1)));
@@ -76,16 +74,15 @@ public:
         for(int R = 0; R < 4; ++R) 
             for(int C = 0; C < 3; ++C) 
                 if(dialpad[R][C] != -1) 
-                    resCount = (resCount + solveWithMemo(memory, N - 1, R, C)) % MOD;
+                    result = (result + solveWithMemo(memory, N - 1, R, C)) % MOD;
 
         // Return the result value
-        return resCount % MOD;
+        return result % MOD;
     }
 };
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
     const int MOD = 1e9+7;
 
@@ -124,17 +121,16 @@ public:
             }
         }
 
-        // Stores the result value
-        int resCount = 0;
+        int result = 0;
 
         // Start dialing from the cells which doesn't starts from '*' or '#'
         for(int R = 0; R < 4; ++R) 
             for(int C = 0; C < 3; ++C) 
                 if(dialpad[R][C] != -1) 
-                    resCount = (resCount + dp[N - 1][R][C]) % MOD;
+                    result = (result + dp[N - 1][R][C]) % MOD;
 
         // Return the result value
-        return resCount % MOD;
+        return result % MOD;
     }
 };
 
