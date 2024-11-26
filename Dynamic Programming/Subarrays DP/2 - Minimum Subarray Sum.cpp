@@ -137,7 +137,7 @@ public:
 
         // Note: If you're on a index then you've two possibilities on it: 
         // 1. To start a new subarray from it
-        // 2. Pick the index element as a part of the minimum subarray seen till its previous index
+        // 2. Pick the index element as a part of the minimum sum subarray seen till its previous index
 
         for(int num : nums) {
             minEnding = min(minEnding + num, num);
