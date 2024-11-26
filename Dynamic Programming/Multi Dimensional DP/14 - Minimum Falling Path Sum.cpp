@@ -2,7 +2,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public: 
     // Method to find the minimum sum of any falling path, using recursion with memoization - O(N*N) & O(N*N)
@@ -69,7 +68,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Bottom-up approach:
 class BottomUp_V1 {
 public: 
     // #1 Method to find the minimum sum of any falling path, using 2D tabulation - O(N*N) & O(N*N)
@@ -126,7 +124,6 @@ public:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Bottom-up approach:
 class BottomUp_V2 {
 public:
     // Method to find the minimum sum of any falling path, using constant auxiliary space - O(N*N) & O(1)
