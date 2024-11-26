@@ -2,7 +2,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public:
     // Method to find the maximum possible energy you can gain, using recursion with memoization - O(N) & O(N)
@@ -62,7 +61,6 @@ private:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #1 Class to implement the Bottom-up approach:
 class BottomUp_V1 {
 public:
     // Method to find the maximum possible energy you can gain, using 1D tabulation - O(N) & O(N) 
@@ -98,7 +96,6 @@ public:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// #2 Class to implement the Bottom-up approach:
 class BottomUp_V2 {
 public:
     // Method to find the maximum possible energy you can gain, using constant auxiliary space - O(N) & O(1)
