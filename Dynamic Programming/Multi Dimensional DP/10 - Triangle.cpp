@@ -2,7 +2,6 @@
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
 public:
     // Method to find the minimum path sum from top to bottom, using recursion with memoization - O(N*N) & O(N*N)
@@ -48,7 +47,6 @@ private:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the minimum path sum from top to bottom, using 2D tabulation - O(N*N) & O(N*N)
