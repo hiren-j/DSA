@@ -2,7 +2,6 @@
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class TopDown {
     int N, M;
 
@@ -64,7 +63,6 @@ public:
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Bottom-up approach:
 class BottomUp {
 public:
     // #1 Method to find the maximum number of cherries collection, using 3D tabulation - (N*M*M) & O(N*M*M)
