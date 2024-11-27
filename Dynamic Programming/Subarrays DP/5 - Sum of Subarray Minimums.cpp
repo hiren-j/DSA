@@ -146,10 +146,54 @@ public:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class MonotonicStack {
+    int n;
+
+    void getPrevSmallerFromLeft(vector<int>& nums, vector<int>& result) {
+        stack<int> st;
+
+        for(int i = 0; i < n; ++i) {
+            while(!st.empty() && nums[st.top()] > nums[i])
+                st.pop();
+
+            result[i] = st.empty() ? -1 : st.top();
+            st.push(i);
+        }
+    }
+
+    void getNextSmallerFromRight(vector<int>& nums, vector<int>& result) {
+        stack<int> st;
+
+        for(int i = n-1; i >= 0; --i) {
+            while(!st.empty() && nums[st.top()] >= nums[i])
+                st.pop();
+
+            result[i] = st.empty() ? n : st.top();
+            st.push(i);
+        }
+    }
+
 public:
-    int sumSubarrayMins(vector<int>& nums) {}
+    // Method to find the sum of minimum element of all the subarrays, using monotonic stack technique - O(N) & O(N)
+    int sumSubarrayMins(vector<int>& nums) {
+        n = nums.size();
+
+        // Stores the index of the previous smaller and next smaller element of each index value
+        vector<int> PSE(n), NSE(n);
+        getPrevSmallerFromLeft(nums, PSE);
+        getNextSmallerFromRight(nums, NSE);
+
+        int sumMins = 0, MOD = 1e9+7;
+
+        for(int i = 0; i < n; ++i) {
+            int numElementsLeft  = abs(i - PSE[i]);
+            int numElementsRight = abs(i - NSE[i]);
+            long long numSubarrays = numElementsLeft * numElementsRight; // Find the number of subarrays the ith element is participating as the smallest element
+            sumMins = (sumMins + numSubarrays * nums[i]) % MOD;
+        }
+
+        return sumMins % MOD;
+    }
 };
-// Note: Will upload this solution soon 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
