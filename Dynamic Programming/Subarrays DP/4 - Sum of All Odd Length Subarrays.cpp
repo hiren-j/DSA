@@ -13,7 +13,7 @@ class TopDown {
 
         if(prevPick) {
             int pickCurrSubarr = solveWithoutMemo(nums, index + 1, true, subarrLen + 1, subarrSum + nums[index]);
-            int stopHere = (prevPick && subarrLen % 2 != 0) ? subarrSum : 0;
+            int stopHere = (subarrLen % 2 != 0) ? subarrSum : 0;
             return pickCurrSubarr + stopHere;
         }
         else {
@@ -34,7 +34,7 @@ class TopDown {
 
         if(prevPick) {
             int pickCurrSubarr = solveWithMemo(dp, nums, index + 1, true, subarrLen + 1, subarrSum + nums[index]);
-            int stopHere = (prevPick && subarrLen % 2 != 0) ? subarrSum : 0;
+            int stopHere = (subarrLen % 2 != 0) ? subarrSum : 0;
             return dp[index][prevPick][subarrLen][subarrSum] = pickCurrSubarr + stopHere;
         }
         else {
@@ -81,7 +81,7 @@ public:
                         int newIdx = subarrSum + nums[idx];
                         if(prevPick) {
                             int pickCurrSubarr = (newIdx <= totalSum) ? dp[idx + 1][true][subarrLen + 1][newIdx] : 0;
-                            int stopHere = (prevPick && subarrLen % 2 != 0) ? subarrSum : 0;
+                            int stopHere = (subarrLen % 2 != 0) ? subarrSum : 0;
                             dp[idx][prevPick][subarrLen][subarrSum] = pickCurrSubarr + stopHere;
                         }
                         else {
@@ -127,7 +127,7 @@ public:
                         int newIdx = subarrSum + nums[idx];
                         if(prevPick) {
                             int pickCurrSubarr = (newIdx <= totalSum) ? nextRow[true][subarrLen + 1][newIdx] : 0;
-                            int stopHere = (prevPick && subarrLen % 2 != 0) ? subarrSum : 0;
+                            int stopHere = (subarrLen % 2 != 0) ? subarrSum : 0;
                             idealRow[prevPick][subarrLen][subarrSum] = pickCurrSubarr + stopHere;
                         }
                         else {
