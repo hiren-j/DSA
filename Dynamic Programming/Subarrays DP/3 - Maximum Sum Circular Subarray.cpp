@@ -50,7 +50,7 @@ public:
         n = nums.size();
         vector<vector<int>> dp1(n, vector<int>(2, -1));
         int maxSum = solveWithMemo(dp1, nums, 0, false, true);
-        if(maxSum <= 0) return maxSum; // If all the numbers are negative then return the maximum sum you've got
+        if(maxSum <= 0) return maxSum; // If all the numbers are negative or 0 then return the maximum sum you've got
         vector<vector<int>> dp2(n, vector<int>(2, -1)); 
         int minSum = solveWithMemo(dp2, nums, 0, false, false);
         int totalSum = accumulate(begin(nums), end(nums), 0);
@@ -117,7 +117,7 @@ public:
     int maxSubarraySumCircular(vector<int>& nums) {
         n = nums.size();
         int maxSum = solveUsing1DTable(nums, true);
-        if(maxSum <= 0) return maxSum; // If all the numbers are negative then return the maximum sum you've got
+        if(maxSum <= 0) return maxSum; // If all the numbers are negative or 0 then return the maximum sum you've got
         int minSum = solveUsing1DTable(nums, false);
         int totalSum = accumulate(begin(nums), end(nums), 0);
         return max(maxSum, totalSum - minSum);
@@ -150,7 +150,7 @@ public:
             minSum = min(minSum, minEnding);
         }
 
-        // If all the numbers are negative then return the maximum sum you've got
+        // If all the numbers are negative or 0 then return the maximum sum you've got
         if(maxSum <= 0) return maxSum;
         
         return max(maxSum, totalSum - minSum);
