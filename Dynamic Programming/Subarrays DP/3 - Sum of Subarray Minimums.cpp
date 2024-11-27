@@ -14,7 +14,7 @@ class TopDown {
 
         if(prevPick) {
             int pickCurrSubarr = solveWithoutMemo(nums, index + 1, true, min(subarrMin, nums[index]));
-            int stopHere = (prevPick) ? subarrMin : 0;
+            int stopHere = subarrMin;
             return (pickCurrSubarr + stopHere) % MOD;
         }
         else {
@@ -36,7 +36,7 @@ class TopDown {
 
         if(prevPick) {
             int pickCurrSubarr = solveWithMemo(dp, nums, index + 1, true, min(subarrMin, nums[index]));
-            int stopHere = (prevPick) ? subarrMin : 0;
+            int stopHere = subarrMin;
             return dp[index][prevPick][subarrMin] = (pickCurrSubarr + stopHere) % MOD;
         }
         else {
@@ -85,7 +85,7 @@ public:
                 for(int subarrMin = 0; subarrMin <= maxElement+1; ++subarrMin) {
                     if(prevPick) {
                         int pickCurrSubarr = dp[index + 1][true][min(subarrMin, nums[index])];
-                        int stopHere = (prevPick) ? subarrMin : 0;
+                        int stopHere = subarrMin;
                         dp[index][prevPick][subarrMin] = (pickCurrSubarr + stopHere) % MOD;
                     }
                     else {
@@ -124,7 +124,7 @@ public:
                 for(int subarrMin = 0; subarrMin <= maxElement+1; ++subarrMin) {
                     if(prevPick) {
                         int pickCurrSubarr = nextRow[true][min(subarrMin, nums[index])];
-                        int stopHere = (prevPick) ? subarrMin : 0;
+                        int stopHere = subarrMin;
                         idealRow[prevPick][subarrMin] = (pickCurrSubarr + stopHere) % MOD;
                     }
                     else {
