@@ -177,7 +177,6 @@ public:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the fourth approach:
 class Solution_V4 {
 public:
     // Method to check whether string "s" is a subsequence of string "t", using two pointers technique - O(N+M) & O(1)
