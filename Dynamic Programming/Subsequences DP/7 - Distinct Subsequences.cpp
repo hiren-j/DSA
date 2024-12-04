@@ -5,7 +5,7 @@
 class TopDown_V1 {
     int n, m;
 
-    // O(2^N) & O(N)
+    // O(2^(N+M)) & O(N)
     int solveWithoutMemo(string& s1, string& s2, int i, int j) {
         // Edge case: If all the letters of "s2" are exhausted then you've one valid way 
         if(j == m)
