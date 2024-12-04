@@ -156,7 +156,7 @@ public:
         return maxSum;
     }
 };
-// Note: This approach is taking less than 10^6 iterations in the worst case and that's the reason its getting accepted, else it's not possible, however still looking at the majors we must consider the time complexity to be O(N*K).
+// Note: This approach is taking less than 10^6 iterations in the worst case and that's the reason its getting accepted, else it's not possible, however still looking at the majors we must consider the time complexity to be O(N*K)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class SlidingWindow {
