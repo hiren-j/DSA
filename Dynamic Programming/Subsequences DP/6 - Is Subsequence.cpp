@@ -177,7 +177,7 @@ public:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-class Solution_V4 {
+class TwoPointers {
 public:
     // Method to check whether string "s" is a subsequence of string "t", using two pointers technique - O(N+M) & O(1)
     bool isSubsequence(string& s, string& t) {
