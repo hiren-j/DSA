@@ -22,8 +22,8 @@ class DynamicProgramming {
         if(k == -1)
             return INT_MAX; // If no more stops left 
 
-        int minPrice = INT_MAX;
         visited[node]++;
+        int minPrice = INT_MAX;
 
         for(auto& [neighbor, price] : adjList[node]) {
             if(!visited[neighbor]) {
@@ -47,8 +47,8 @@ class DynamicProgramming {
         if(dp[node][k] != -1)
             return dp[node][k];
 
-        int minPrice = INT_MAX;
         visited[node]++;
+        int minPrice = INT_MAX;
 
         for(auto& [neighbor, price] : adjList[node]) {
             if(!visited[neighbor]) {
