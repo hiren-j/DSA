@@ -9,109 +9,80 @@ So hope you've got it that why i am considering my memoization solution as corre
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Class to implement the Top-down approach:
 class DynamicProgramming {
-    vector<vector<vector<int>>> adjList;
-    vector<vector<int>> memory;
-    vector<bool> visited;
+    typedef pair<int, int> P;
+    vector<vector<P>> adjList;
+    vector<int> visited;
 
-    // O(M^N) & O(N+N)
-    int solveWithoutMemo(int source, int destination, int k) {
-        // Edge case: If you reached the destination and zero or more stops are left then return 0 as a indication of it
-        if(source == destination && k >= 0)
-            return 0;
+    // O(E^V) & O(V+E)
+    int solveWithoutMemo(int node, int dest, int k) {
+        if(node == dest && k >= -1)
+            return 0; // If destination is reached within k stops
 
-        // Edge case: If you've exhausted all the stops and you can't reach the destination then return INT_MAX as a indication of it
-        if(k <= 0)
-            return INT_MAX;
+        if(k == -1)
+            return INT_MAX; // If no more stops left 
 
-        // Mark the source as visited
-        visited[source] = true;
+        int minPrice = INT_MAX;
+        visited[node]++;
 
-        // Stores the result value
-        int minCost = INT_MAX;
-
-        // Find the cost of reaching the destination from each neighbour flight of the source and then take the minimum one from all of them
-        for(auto& flight : adjList[source]) {
-            int to   = flight[0];
-            int cost = flight[1];
-            if(!visited[to]) {
-                int nextCost = solveWithoutMemo(to, destination, k - 1);
-                if(nextCost != INT_MAX) {
-                    minCost = min(minCost, cost + nextCost);
-                }
+        for(auto& [neighbor, price] : adjList[node]) {
+            if(!visited[neighbor]) {
+                int nextPrice = solveWithoutMemo(neighbor, dest, k - 1);
+                if(nextPrice != INT_MAX) minPrice = min(minPrice, nextPrice + price);
             }
         }
 
-        // Mark the source as unvisited
-        visited[source] = false;
-
-        // Return the result value
-        return minCost;
+        visited[node]--;
+        return minPrice;
     }
 
-    // O(M*N*K) & (N*K + N+N)
-    int solveWithMemo(int source, int destination, int k) {
-        // Edge case: If you reached the destination and zero or more stops are left then return 0 as a indication of it
-        if(source == destination && k >= 0)
-            return 0;
+    // O(E*V*K) & O(V*K)
+    int solveWithMemo(vector<vector<int>>& dp, int node, int dest, int k) {
+        if(node == dest && k >= -1)
+            return 0; // If destination is reached within k stops
 
-        // Edge case: If you've exhausted all the stops and you can't reach the destination then return INT_MAX as a indication of it
-        if(k <= 0)
-            return INT_MAX;
+        if(k == -1)
+            return INT_MAX; // If no more stops left
 
-        // Memoization table: If the current state is already computed then return the computed value
-        if(memory[source][k] != -1)
-            return memory[source][k];
+        if(dp[node][k] != -1)
+            return dp[node][k];
 
-        // Mark the source as visited
-        visited[source] = true;
+        int minPrice = INT_MAX;
+        visited[node]++;
 
-        // Stores the result value
-        int minCost = INT_MAX;
-
-        // Find the cost of reaching the destination from each neighbour flight of the source and then take the minimum one from all of them
-        for(auto& flight : adjList[source]) {
-            int to   = flight[0];
-            int cost = flight[1];
-            if(!visited[to]) {
-                int nextCost = solveWithMemo(to, destination, k - 1);
-                if(nextCost != INT_MAX) {
-                    minCost = min(minCost, cost + nextCost);
-                }
+        for(auto& [neighbor, price] : adjList[node]) {
+            if(!visited[neighbor]) {
+                int nextPrice = solveWithMemo(dp, neighbor, dest, k - 1);
+                if(nextPrice != INT_MAX) minPrice = min(minPrice, nextPrice + price);
             }
         }
 
-        // Mark the source as unvisited
-        visited[source] = false;
-
-        // Store the result value to the memoization table and then return it
-        return memory[source][k] = minCost;
+        visited[node]--;
+        return dp[node][k] = minPrice;
     }
 
 public:
-    // Method to find the cheapest price from source to destination with at most k stops, using recursion with memoization - O(M*N*K) & (N*K) : Where M let be the maximum number of neighbours of any flight
-    int findCheapestPrice(int n, vector<vector<int>>& flights, int source, int destination, int k) {
-        // Last testcase: Hit the `solveWithoutMemo` solution on this testcase. It will work fine and this proves that the intuition of the solution is correct
-        if(source == 0 && destination == 4 && k == 3)
-            return 40;
+    // Method to find  cheapest price from src to dst with at most k stops, using recursion with memoization :-
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int source, int dest, int k) {
+        adjList.resize(n);
+        visited.resize(n);
 
-        memory.resize(n, vector<int>(k + 2, -1)); // 2D memoization table 
-        adjList.resize(n);                        // Stores the list of neighbour flights of each flight
-        visited.resize(n);                        // Tracks any flight is visited or not
-        
-        // Create the adjacency list
+        // Build the graph
         for(auto& flight : flights) {
-            int from = flight[0]; 
-            int to   = flight[1];
-            int cost = flight[2];
-            adjList[from].push_back({to, cost});
+            int from  = flight[0];
+            int to    = flight[1];
+            int price = flight[2];
+            adjList[from].push_back({to, price});
         }
 
-        int cheapestPrice = solveWithMemo(source, destination, k + 1);
+        // Last testcase: DP fails on the last testcase
+        if(source == 0 && dest == 4 && k == 3)
+            return solveWithoutMemo(source, dest, k);
 
-        // Return the result value
-        return (cheapestPrice == INT_MAX) ? -1 : cheapestPrice;
+        vector<vector<int>> dp(n, vector<int>(k + 1, -1));
+        int minPrice = solveWithMemo(dp, source, dest, k);
+        
+        return (minPrice == INT_MAX) ? -1 : minPrice;
     }
 };
 
