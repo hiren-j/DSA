@@ -62,7 +62,7 @@ class DynamicProgramming {
     }
 
 public:
-    // Method to find  cheapest price from src to dst with at most k stops, using recursion with memoization :-
+    // Method to find cheapest price from src to dst with at most k stops, using recursion with memoization :-
     int findCheapestPrice(int n, vector<vector<int>>& flights, int source, int dest, int k) {
         adjList.resize(n);
         visited.resize(n);
