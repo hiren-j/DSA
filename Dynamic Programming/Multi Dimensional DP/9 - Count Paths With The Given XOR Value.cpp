@@ -68,7 +68,7 @@ public:
         // 3D DP table
         vector<vector<vector<int>>> dp(N+1, vector<vector<int>>(M+1, vector<int>(16, 0)));
 
-        // Initialize the edge case
+        // Initialize the second edge case
         for(int pathXOR = 0; pathXOR < 16; ++pathXOR)
             dp[N-1][M-1][pathXOR] = (pathXOR ^ grid[N-1][M-1]) == 0;
 
@@ -96,7 +96,7 @@ public:
         // 2D DP tables
         vector<vector<int>> nextRow(M+1, vector<int>(16, 0)), idealRow(M+1, vector<int>(16, 0));        
 
-        // Initialize the edge case
+        // Initialize the second edge case
         for(int pathXOR = 0; pathXOR < 16; ++pathXOR)
             idealRow[M-1][pathXOR] = (pathXOR ^ grid[N-1][M-1]) == 0;
 
