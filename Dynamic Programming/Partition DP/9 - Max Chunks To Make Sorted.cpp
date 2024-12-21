@@ -69,7 +69,7 @@ public:
 
 class BottomUp {
 public:
-    // Method to find the largest number of chunks, using recursion with memoization - O(N^2) & O(N)
+    // Method to find the largest number of chunks, using 2D tabulation - O(N^2) & O(N)
     int maxChunksToSorted(vector<int>& nums) {
         int n = nums.size();
 
