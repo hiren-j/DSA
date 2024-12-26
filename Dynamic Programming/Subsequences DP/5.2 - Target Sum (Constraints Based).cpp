@@ -133,7 +133,7 @@ public:
         return dp[0][target + offset];
     }
 
-    // #2 Method to find the total number of different expressions that evaluates to target, using 2D tabulation - O(n*maxSpace) & O(maxSpace)
+    // #2 Method to find the total number of different expressions that evaluates to target, using 1D tabulation - O(n*maxSpace) & O(maxSpace)
     int findTargetSumWays_V2(vector<int>& nums, int target) {
         int n = nums.size();
         int maxSpace = 40001;
