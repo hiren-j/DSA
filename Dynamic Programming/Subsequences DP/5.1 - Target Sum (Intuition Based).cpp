@@ -116,12 +116,8 @@ public:
 
         // Initialize the edge case: If you reached the 0th index then compute the count of all the subsets according to their existence
         dp[0][0] = 1;
-
-        if(nums[0] == 0) 
-            dp[0][0] = 2;
-
-        else if(nums[0] <= target) 
-            dp[0][nums[0]] = 1;
+        if(nums[0] == 0) dp[0][0] = 2;
+        else if(nums[0] <= target) dp[0][nums[0]] = 1;
 
         // Fill the rest of the table
         for(int index = 1; index < n; ++index) {
@@ -155,12 +151,8 @@ public:
 
         // Initialize the edge case: If you reached the 0th index then compute the count of all the subsets according to their existence
         prevRow[0] = 1;
-
-        if(nums[0] == 0) 
-            prevRow[0] = 2;
-
-        else if(nums[0] <= target) 
-            prevRow[nums[0]] = 1;
+        if(nums[0] == 0) prevRow[0] = 2;
+        else if(nums[0] <= target) prevRow[nums[0]] = 1;
 
         // Fill the rest of the table
         for(int index = 1; index < n; ++index) {
