@@ -1,7 +1,7 @@
 // Code to find the number of different expressions that you can build using specified way such that they evaluates to target ~ coded by Hiren
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+```
 DON'T IGNORE MUST READ (REGARDING MY REASONING BEHIND THE LINE): 
     int maxSpace = 40001
     int offset   = 20000
@@ -53,7 +53,7 @@ Now we have to fit both negative and positive sum into array, array indexing sta
 -> Let say it as the maxSpace = 40001.
 
 -> This approach ensures that the array has indeces for both negative and positive sum, including the value of `target` itself. This way, you can use an array without dealing with negative indices.
-  
+```
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class TopDown {
