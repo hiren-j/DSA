@@ -94,6 +94,7 @@ class TopDown {
     }
 
 public:
+    // Method to find the total number of different expressions that evaluates to target, using recursion with memoization - O(n*maxSpace) & O(n*maxSpace)
     int findTargetSumWays(vector<int>& nums, int target) {
         n = nums.size();
         vector<vector<int>> dp(n, vector<int>(maxSpace, -1));
@@ -105,7 +106,7 @@ public:
 
 class BottomUp {
 public:
-    // O(n * maxSpace) & O(n * maxSpace)
+    // #1 Method to find the total number of different expressions that evaluates to target, using 2D tabulation - O(n*maxSpace) & O(n*maxSpace)
     int findTargetSumWays_V1(vector<int>& nums, int target) {
         int n = nums.size();
         int maxSpace = 40001;
@@ -132,7 +133,7 @@ public:
         return dp[0][target + offset];
     }
 
-    // O(n * maxSpace) & O(maxSpace)
+    // #2 Method to find the total number of different expressions that evaluates to target, using 2D tabulation - O(n*maxSpace) & O(maxSpace)
     int findTargetSumWays_V2(vector<int>& nums, int target) {
         int n = nums.size();
         int maxSpace = 40001;
