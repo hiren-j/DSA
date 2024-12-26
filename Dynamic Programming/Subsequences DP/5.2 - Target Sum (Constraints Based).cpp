@@ -2,57 +2,57 @@
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
-DON'T IGNORE MUST READ (REGARDING MY REASONING BEHIND THE LINE): 
-    int maxSpace = 40001
-    int offset   = 20000
-
-Constraints:
-1 <= nums.length <= 20
-0 <= nums[i] <= 1000
--1000 <= target <= 1000
-
-As mentioned in the worst case we could have 20 values and the maximum value could be 1000, now based on this:
-    = nums.length * nums[i]
-    = 20 * 1000
-    = 20000
-    => Let say this value 20000 is called offset.
-
--> Worst case of positive sum: 
-    If we add 1000 for 20 times the maximum possible sum will be 20000, hence the worst case for positive sum could be 20000.
--> Worst case of negative sum: 
-    If we subtract 1000 for 20 times the maximum possible negative sum will be -20000, hence the worst case for negative sum could be -20000.
-
--> As I said (offset = 20000), So I could say:
-    -> In summary the worst case for negative sum is: -offset
-    -> In summary the worst case for positive sum is:  offset 
-
-Now we have to fit both negative and positive sum into array, array indexing starts from 0.
-
--> Intuition to store negative sums: 
-    -> We will use index 0 to store the result for -20000.              To get index 0 do this -> (-20000 + offset) 
-    -> We will use index 1 to store the result for -19999.              To get index 1 do this -> (-19999 + offset) 
-    -> We will use index 2 to store the result for -19998.              To get index 2 do this -> (-19998 + offset) 
-    -> We will use index i to store the result for any negative target. To get index i do this -> (target + offset) 
-
--> Intuition to store positive sums: 
-    -> We will use index 20000 to store the result for 0.                         To get index 20000 do this -> (0 + offset) 
-    -> We will use index 20001 to store the result for 1.                         To get index 20001 do this -> (1 + offset) 
-    -> We will use index 20002 to store the result for 2.                         To get index 20002 do this -> (2 + offset) 
-    -> We will use index (i + 20000) to store the result for any positive target. To get index (i + offset) do this -> (target + offset) 
-
--> As you could see the common line in both the intuitions is: (target + offset)
--> So We will be using (target + offset) for fetching array indeces.
-
--> Now as I said the worst positive sum is 20000,
-   then for it the index will be = 20000 + offset
-                                 = 20000 + 20000
-                                 = 40000   
-
--> So the last index will be 40000, to ensure this index into an array the size must be 40001.
--> So size for array should be 40001.
--> Let say it as the maxSpace = 40001.
-
--> This approach ensures that the array has indeces for both negative and positive sum, including the value of `target` itself. This way, you can use an array without dealing with negative indices.
+    DON'T IGNORE MUST READ (REGARDING MY REASONING BEHIND THE LINE): 
+        int maxSpace = 40001
+        int offset   = 20000
+    
+    Constraints:
+    1 <= nums.length <= 20
+    0 <= nums[i] <= 1000
+    -1000 <= target <= 1000
+    
+    As mentioned in the worst case we could have 20 values and the maximum value could be 1000, now based on this:
+        = nums.length * nums[i]
+        = 20 * 1000
+        = 20000
+        => Let say this value 20000 is called offset.
+    
+    -> Worst case of positive sum: 
+        If we add 1000 for 20 times the maximum possible sum will be 20000, hence the worst case for positive sum could be 20000.
+    -> Worst case of negative sum: 
+        If we subtract 1000 for 20 times the maximum possible negative sum will be -20000, hence the worst case for negative sum could be -20000.
+    
+    -> As I said (offset = 20000), So I could say:
+        -> In summary the worst case for negative sum is: -offset
+        -> In summary the worst case for positive sum is:  offset 
+    
+    Now we have to fit both negative and positive sum into array, array indexing starts from 0.
+    
+    -> Intuition to store negative sums: 
+        -> We will use index 0 to store the result for -20000.              To get index 0 do this -> (-20000 + offset) 
+        -> We will use index 1 to store the result for -19999.              To get index 1 do this -> (-19999 + offset) 
+        -> We will use index 2 to store the result for -19998.              To get index 2 do this -> (-19998 + offset) 
+        -> We will use index i to store the result for any negative target. To get index i do this -> (target + offset) 
+    
+    -> Intuition to store positive sums: 
+        -> We will use index 20000 to store the result for 0.                         To get index 20000 do this -> (0 + offset) 
+        -> We will use index 20001 to store the result for 1.                         To get index 20001 do this -> (1 + offset) 
+        -> We will use index 20002 to store the result for 2.                         To get index 20002 do this -> (2 + offset) 
+        -> We will use index (i + 20000) to store the result for any positive target. To get index (i + offset) do this -> (target + offset) 
+    
+    -> As you could see the common line in both the intuitions is: (target + offset)
+    -> So We will be using (target + offset) for fetching array indeces.
+    
+    -> Now as I said the worst positive sum is 20000,
+       then for it the index will be = 20000 + offset
+                                     = 20000 + 20000
+                                     = 40000   
+    
+    -> So the last index will be 40000, to ensure this index into an array the size must be 40001.
+    -> So size for array should be 40001.
+    -> Let say it as the maxSpace = 40001.
+    
+    -> This approach ensures that the array has indeces for both negative and positive sum, including the value of `target` itself. This way, you can use an array without dealing with negative indices.
 */
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
