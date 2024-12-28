@@ -72,7 +72,7 @@ public:
         for(int i = n-1; i >= 0; --i) {
             for(int j = 0; j <= n-1; ++j) {
                 if(i > j)
-                    break;
+                    continue;
                     
                 for(int p1Turn = 0; p1Turn <= 1; ++p1Turn) {
                     if(p1Turn) {
@@ -81,8 +81,8 @@ public:
                         dp[i][j][p1Turn] = max(takeFromStart, takeFromEnd);
                     }
                     else {
-                        int takeFromStart = (i+1 < n ? dp[i+1][j][true] : INT_MAX);
-                        int takeFromEnd   = (j-1 >= 0 ? dp[i][j-1][true] : INT_MAX);
+                        int takeFromStart = (i+1 < n ? dp[i+1][j][true] : 0);
+                        int takeFromEnd   = (j-1 >= 0 ? dp[i][j-1][true] : 0);
                         dp[i][j][p1Turn] = min(takeFromStart, takeFromEnd);
                     }
                 }
@@ -104,18 +104,18 @@ public:
         for(int i = n-1; i >= 0; --i) {
             vector<vector<int>> currRow(2, vector<int>(2, 0);
             for(int j = 0; j <= n-1; ++j) {
+                if(i > j)
+                    continue;
+                
                 for(int p1Turn = 0; p1Turn <= 1; ++p1Turn) {
-                    if(i > j) 
-                        break;
-                    
                     if(p1Turn) {
                         int takeFromStart = piles[i] + (i+1 < n ? nextRow[j][false] : 0);
                         int takeFromEnd   = piles[j] + (j-1 >= 0 ? currRow[j-1][false] : 0);
                         currRow[j][p1Turn] = max(takeFromStart, takeFromEnd);
                     }
                     else {
-                        int takeFromStart = (i+1 < n ? nextRow[j][true] : INT_MAX);
-                        int takeFromEnd   = (j-1 >= 0 ? currRow[j-1][true] : INT_MAX);
+                        int takeFromStart = (i+1 < n ? nextRow[j][true] : 0);
+                        int takeFromEnd   = (j-1 >= 0 ? currRow[j-1][true] : 0);
                         currRow[j][p1Turn] = min(takeFromStart, takeFromEnd);
                     }
                 }
