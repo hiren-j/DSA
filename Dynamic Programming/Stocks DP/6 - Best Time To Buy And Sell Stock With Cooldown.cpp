@@ -115,9 +115,9 @@ public:
     int maxProfit_V3(vector<int>& prices) {
         int n = prices.size();
 
-        int thirdSell  = 0, thirdBuy  = 0;
-        int secondSell = 0, secondBuy = 0;
         int firstSell  = 0, firstBuy  = 0;
+        int secondSell = 0, secondBuy = 0;
+        int thirdSell  = 0, thirdBuy  = 0;
 
         for(int day = n-1; day >= 0; --day) {
             for(int canBuy = 0; canBuy <= 1; ++ canBuy) {
