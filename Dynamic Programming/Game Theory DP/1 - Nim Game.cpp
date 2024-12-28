@@ -13,9 +13,9 @@ public:
 private:
     // O(3*N*2) & O(N*2 + N)
     bool solveWithMemo(vector<vector<int>>& memory, int n, bool myTurn) {
-        // Edge case: If there are only 3 or less number of stones in the heap and if its your turn then you can win the game
+        // Edge case: If there are no stones in the heap and if its your friend's turn then you've win the game as previously you've picked the last stone
         if(n <= 0)
-            return myTurn;
+            return !myTurn;
 
         // Memoization table: If the current state is already computed then return the computed value
         if(memory[n][myTurn] != -1)
@@ -39,9 +39,9 @@ private:
 
     // O(3^N) & O(N)
     bool solveWithoutMemo(int n, bool myTurn) {
-        // Edge case: If there are only 3 or less number of stones in the heap and if its your turn then you can win the game
+        // Edge case: If there are no stones in the heap and if its your friend's turn then you've win the game as previously you've picked the last stone
         if(n <= 0)
-            return myTurn;
+            return !myTurn;
 
         // If its your turn then you've three posibilities to perform
         if(myTurn) {
