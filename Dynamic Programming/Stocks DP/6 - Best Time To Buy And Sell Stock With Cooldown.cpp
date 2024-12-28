@@ -124,12 +124,12 @@ public:
                 if(canBuy) {
                     int currBuy  = secondSell - prices[day];
                     int currSkip = secondBuy;
-                    (canBuy ? firstBuy : firstSell) = max(currBuy, currSkip);
+                    firstBuy = max(currBuy, currSkip);
                 }
                 else {
                     int currSell = prices[day] + thirdBuy;
                     int currSkip = secondSell;
-                    (canBuy ? firstBuy : firstSell) = max(currSell, currSkip);
+                    firstSell = max(currSell, currSkip);
                 }
             }
             thirdSell  = secondSell; 
