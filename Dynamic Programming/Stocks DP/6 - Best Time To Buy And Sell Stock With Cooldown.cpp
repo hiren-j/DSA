@@ -117,28 +117,28 @@ public:
 
         int thirdSell  = 0, thirdBuy  = 0;
         int secondSell = 0, secondBuy = 0;
-        int idealSell  = 0, idealBuy  = 0;
+        int firstSell  = 0, firstBuy  = 0;
 
         for(int day = n-1; day >= 0; --day) {
             for(int canBuy = 0; canBuy <= 1; ++ canBuy) {
                 if(canBuy) {
                     int currBuy  = secondSell - prices[day];
                     int currSkip = secondBuy;
-                    (canBuy) ? idealBuy = max(currBuy, currSkip) : idealSell = max(currBuy, currSkip);
+                    (canBuy) ? firstBuy = max(currBuy, currSkip) : firstSell = max(currBuy, currSkip);
                 }
                 else {
                     int currSell = prices[day] + thirdBuy;
                     int currSkip = secondSell;
-                    (canBuy) ? idealBuy = max(currSell, currSkip) : idealSell = max(currSell, currSkip);
+                    (canBuy) ? firstBuy = max(currSell, currSkip) : firstSell = max(currSell, currSkip);
                 }
             }
             thirdSell  = secondSell; 
             thirdBuy   = secondBuy;
-            secondSell = idealSell;
-            secondBuy  = idealBuy;
+            secondSell = firstSell;
+            secondBuy  = firstBuy;
         }
 
-        return idealBuy;
+        return firstBuy;
     }
 };
 
