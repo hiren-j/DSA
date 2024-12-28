@@ -61,7 +61,7 @@ private:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-class BottomUp {
+class Solution {
 public:
     // #1 Method to check if player1 can win the game or not, using 3D tabulation - O(N^2) & O(N^2)
     bool predictTheWinner_V1(vector<int>& piles) {
@@ -98,15 +98,15 @@ public:
     // #2 Method to check if player1 can win the game or not, using 2D tabulation - O(N^2) & O(N)
     bool predictTheWinner_V2(vector<int>& piles) {
         int n = piles.size();
-        
+
         vector<vector<int>> nextRow(n, vector<int>(2, 0));
 
         for(int i = n-1; i >= 0; --i) {
-            vector<vector<int>> currRow(2, vector<int>(2, 0);
+            vector<vector<int>> currRow(n, vector<int>(2, 0));
             for(int j = 0; j <= n-1; ++j) {
                 if(i > j)
                     continue;
-                
+                    
                 for(int p1Turn = 0; p1Turn <= 1; ++p1Turn) {
                     if(p1Turn) {
                         int takeFromStart = piles[i] + (i+1 < n ? nextRow[j][false] : 0);
@@ -129,7 +129,6 @@ public:
         return (p1Score >= p2Score);
     }
 };
-    
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Topics: Array | Math | Dynamic Programming | Recursion | Game Theory
