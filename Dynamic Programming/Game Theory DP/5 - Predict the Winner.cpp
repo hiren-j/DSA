@@ -72,7 +72,7 @@ public:
         for(int i = n-1; i >= 0; --i) {
             for(int j = 0; j <= n-1; ++j) {
                 if(i > j)
-                    continue;
+                    break;
                     
                 for(int p1Turn = 0; p1Turn <= 1; ++p1Turn) {
                     if(p1Turn) {
@@ -99,15 +99,14 @@ public:
     bool predictTheWinner_V2(vector<int>& piles) {
         int n = piles.size();
         
-        vector<vector<int>> nextRow(n, vector<int>(2, 0)), currRow(n, vector<int>(2, 0));
+        vector<vector<int>> nextRow(n, vector<int>(2, 0));
 
         for(int i = n-1; i >= 0; --i) {
+            vector<vector<int>> currRow(2, vector<int>(2, 0);
             for(int j = 0; j <= n-1; ++j) {
                 for(int p1Turn = 0; p1Turn <= 1; ++p1Turn) {
-                    if(i > j) {
-                        currRow[j][p1Turn] = 0;
-                        continue;
-                    }
+                    if(i > j) 
+                        break;
                     
                     if(p1Turn) {
                         int takeFromStart = piles[i] + (i+1 < n ? nextRow[j][false] : 0);
@@ -124,7 +123,7 @@ public:
             nextRow = currRow;
         }
 
-        int p1Score = currRow[n-1][true];
+        int p1Score = nextRow[n-1][true];
         int p2Score = accumulate(begin(piles), end(piles), 0) - p1Score;
 
         return (p1Score >= p2Score);
