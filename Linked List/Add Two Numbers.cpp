@@ -160,5 +160,6 @@ int main() {
 }
 /*
     Topics: Linked List | Maths
-    Link: https://leetcode.com/problems/add-two-numbers/description/
+    Problem Link: https://leetcode.com/problems/add-two-numbers/description/
+    New Solutions Created By Me: https://leetcode.com/problems/add-two-numbers/solutions/4539476/2-solutions-brute-optimal-without-creating-new-list-self-explanatory-cpp-code/
 */
