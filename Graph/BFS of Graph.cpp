@@ -157,5 +157,5 @@ int main() {
 }
 /*
     Topics: Breadth-first-search | Graph
-    Link: https://www.naukri.com/code360/problems/dfs-traversal_630462
+    Link  : https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/0
 */
