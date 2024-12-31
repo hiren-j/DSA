@@ -25,13 +25,12 @@ private:
         int maxStones  = (aliceTurn) ? 0 : INT_MAX;
         int currStones = 0;
         int end = min(startIndex + 2*M, N);
+        int X = 1;
 
         for(int index = startIndex; index < end; ++index) {
-            currStones += piles[index];
-            int X = index - startIndex + 1;
-
             // If its Alice's turn then she absolutely wanted to win, So for that she wants to maximize her score, so she will take the maximum value from all the possibility
             if(aliceTurn) {
+                currStones += piles[index];
                 int nextStones = solveWithMemo(memory, piles, N, max(M, X), index + 1, false);
                 maxStones = max(maxStones, nextStones + currStones);
             }
@@ -40,6 +39,7 @@ private:
                 int nextStones = solveWithMemo(memory, piles, N, max(M, X), index + 1, true);
                 maxStones = min(maxStones, nextStones);
             }
+            X++;
         }
 
         // Store the result value to the memoization table and then return it
@@ -55,13 +55,12 @@ private:
         int maxStones  = (aliceTurn) ? 0 : INT_MAX;
         int currStones = 0;
         int end = min(startIndex + 2*M, N);
+        int X = 1;
 
         for(int index = startIndex; index < end; ++index) {
-            currStones += piles[index];
-            int X = index - startIndex + 1;
-
             // If its Alice's turn then she absolutely wanted to win, So for that she wants to maximize her score, so she will take the maximum value from all the possibility
             if(aliceTurn) {
+                currStones += piles[index];
                 int nextStones = solveWithoutMemo(piles, N, max(M, X), index + 1, false);
                 maxStones = max(maxStones, nextStones + currStones);
             }
@@ -70,6 +69,7 @@ private:
                 int nextStones = solveWithoutMemo(piles, N, max(M, X), index + 1, true);
                 maxStones = min(maxStones, nextStones);
             }
+            X++;
         }
 
         return maxStones;
@@ -89,27 +89,27 @@ public:
 
         // Fill the table
         for(int startIndex = N-1; startIndex >= 0; --startIndex) {
-            for(int curr_M = N; curr_M >= 1; --curr_M) {
+            for(int M = N; M >= 1; --M) {
                 for(int aliceTurn = 0; aliceTurn <= 1; ++aliceTurn) {
                     int maxStones  = (aliceTurn) ? 0 : INT_MAX;
                     int currStones = 0;
-                    int end = min(startIndex + 2*curr_M, N);
+                    int end = min(startIndex + 2*M, N);
+                    int X = 1;
 
                     for(int index = startIndex; index < end; ++index) {
-                        currStones += piles[index];
-                        int X = index - startIndex + 1;
-
                         if(aliceTurn) {
-                            int nextStones = dp[index + 1][max(curr_M, X)][false];
+                            currStones += piles[index];
+                            int nextStones = dp[index + 1][max(M, X)][false];
                             maxStones = max(maxStones, nextStones + currStones);
                         }
                         else {
-                            int nextStones = dp[index + 1][max(curr_M, X)][true];
+                            int nextStones = dp[index + 1][max(M, X)][true];
                             maxStones = min(maxStones, nextStones);
                         }
+                        X++;
                     }
 
-                    dp[startIndex][curr_M][aliceTurn] = maxStones;
+                    dp[startIndex][M][aliceTurn] = maxStones;
                 }
             }
         }
