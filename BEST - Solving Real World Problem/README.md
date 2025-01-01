@@ -1,6 +1,6 @@
 🎉 **Title:** Mastering the Rubik's Pyramid: Creating Patterns Without Even Looking! 💡🎯🔥
 
-🧩 **Initial Note:** This video showcases why DSA is my all-time favorite subject. Programming helped me improve my problem-solving skills, and it was these skills that allowed me to solve this real-world problem! Literally a huge thanks to DSA for sharpening my mind and enabling me to tackle such challenge! And I specially want to thank [LeetCode](https://leetcode.com/u/leetcode/) for providing such a great platform to improve problem-solving skills.""
+🧩 **Initial Note:** This video showcases why DSA is my all-time favorite subject. Programming helped me improve my problem-solving skills, and it was these skills that allowed me to solve this real-world problem! Literally a huge thanks to DSA for sharpening my mind and enabling me to tackle such challenge! And I specially want to thank [LeetCode](https://leetcode.com/u/leetcode/) for providing such a great platform to improve problem-solving skills.
 
 🤔 **Question:** How did I achieve this?  
 
