@@ -1,6 +1,6 @@
 ✨ **Title:** Mastering the Rubik's Pyramid: Creating Patterns Without Even Looking! 💡🎯✨  
 
-🌟 **Initial Note:** This video showcases why DSA is my all-time favorite subject. A perfect blend of logic, observation, and real-world problem-solving—just like coding!  
+🧩 **Initial Note:** This video showcases why DSA is my all-time favorite subject. Programming helped me improve my problem-solving skills, and it was these skills that allowed me to solve this real-world problem! Literally a huge thanks to DSA for sharpening my mind and enabling me to tackle such challenge!"
 
 🤔 **Question:** How did I achieve this?  
 
