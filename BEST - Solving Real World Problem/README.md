@@ -12,6 +12,7 @@ I began by exploring the pyramid's mechanics, much like analyzing a coding probl
 😊 **Final Note:** Practice brings progress. Stay consistent, keep trying, and unlock your potential! Let this inspire you to embark on your journey into programming.  
 
 🔖 **Hashtags:**  
+#LeetCode #GFG
 #ProblemSolving #DSA  
 #RubikPyramidChallenge 🧩  
 #ProgrammingSkills 🔥  
