@@ -8,7 +8,7 @@
 
 🎥 [**Click to Watch the Video**](https://www.linkedin.com/posts/hirenjoshi1630_reallifeproblem-solution-datastructuresalgorithms-activity-7185150609266790400-ZbEr?utm_source=share&utm_medium=member_desktop)  
 
-😊 **Final Note:** Practice brings progress. Stay consistent, keep trying, and unlock your potential! Let this inspire you to embark on your journey into programming.  
+😊 **Final Note:** Practice brings progress. Stay consistent, keep trying, and unlock your potential! Let this inspire you to dive into the world of programming.  
 
 #LeetCode #GFG
 #ProblemSolving #DSA  
