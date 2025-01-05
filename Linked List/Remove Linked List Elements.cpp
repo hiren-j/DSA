@@ -207,5 +207,6 @@ int main() {
 }
 /*
     Topics: Linked list 
-    Link: https://leetcode.com/problems/remove-linked-list-elements/description/
+    Link  : https://leetcode.com/problems/remove-linked-list-elements/description/
+    New Solutions Created by Me: https://leetcode.com/problems/remove-linked-list-elements/solutions/4521771/three-multiple-solutions-bruteoptimal-me-xioq/
 */
