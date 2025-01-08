@@ -110,5 +110,5 @@ public:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Topics: Array | Dynamic Programming
-Link  : https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1
+Topics: Array | Dynamic Programming | Backtracking 
+Link  : https://leetcode.com/problems/target-sum/description/?envType=list&envId=50vif4uc
