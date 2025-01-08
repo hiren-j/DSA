@@ -33,10 +33,10 @@ public:
         vector<vector<int>> dp(n, vector<int>(totalSum + 1, -1));
 
         for(int subset1Sum = totalSum/2; subset1Sum <= totalSum; ++subset1Sum) {
-            int currCount  = solveWithMemo(dp, nums, n-1, subset1Sum);
-            int subset2Sum = totalSum - subset1Sum;
+            int countSubsets = solveWithMemo(dp, nums, n-1, subset1Sum);
+            int subset2Sum   = totalSum - subset1Sum;
             if(subset1Sum >= subset2Sum && subset1Sum - subset2Sum == difference) {
-                resCount += currCount;
+                resCount += countSubsets;
             }
         }
 
