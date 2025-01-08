@@ -32,7 +32,7 @@ public:
 
         vector<vector<int>> dp(n, vector<int>(totalSum + 1, -1));
 
-        for(int subset1Sum = 0; subset1Sum <= totalSum; ++subset1Sum) {
+        for(int subset1Sum = totalSum/2; subset1Sum <= totalSum; ++subset1Sum) {
             int currCount  = solveWithMemo(dp, nums, n-1, subset1Sum);
             int subset2Sum = totalSum - subset1Sum;
             if(subset1Sum >= subset2Sum && subset1Sum - subset2Sum == difference) {
@@ -67,7 +67,7 @@ public:
             }
         }
 
-        for(int subset1Sum = 0; subset1Sum <= totalSum; ++subset1Sum) {
+        for(int subset1Sum = totalSum/2; subset1Sum <= totalSum; ++subset1Sum) {
             int subset2Sum = totalSum - subset1Sum;
             if(subset1Sum >= subset2Sum && subset1Sum - subset2Sum == difference) {
                 resCount += dp[n-1][subset1Sum];
@@ -97,7 +97,7 @@ public:
             prevRow = idealRow;
         }
 
-        for(int subset1Sum = 0; subset1Sum <= totalSum; ++subset1Sum) {
+        for(int subset1Sum = totalSum/2; subset1Sum <= totalSum; ++subset1Sum) {
             int subset2Sum = totalSum - subset1Sum;
             if(subset1Sum >= subset2Sum && subset1Sum - subset2Sum == difference) {
                 resCount += prevRow[subset1Sum];
