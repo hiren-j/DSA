@@ -51,6 +51,7 @@ public:
     // O(N*TS) & O(N*TS)
     int countPartitions_V1(vector<int>& nums, int difference) {
         int n = nums.size();
+        int resCount = 0;
         int totalSum = accumulate(begin(nums), end(nums), 0);
 
         vector<vector<int>> dp(n, vector<int>(totalSum + 1, 0));
@@ -66,8 +67,6 @@ public:
             }
         }
 
-        int resCount = 0;
-
         for(int subset1Sum = 0; subset1Sum <= totalSum; ++subset1Sum) {
             int subset2Sum = totalSum - subset1Sum;
             if(subset1Sum >= subset2Sum && subset1Sum - subset2Sum == difference) {
@@ -81,6 +80,7 @@ public:
     // O(N*TS) & O(TS)
     int countPartitions_V2(vector<int>& nums, int difference) {
         int n = nums.size();
+        int resCount = 0;
         int totalSum = accumulate(begin(nums), end(nums), 0);
 
         vector<int> prevRow(totalSum + 1, 0), idealRow(totalSum + 1, 0);
@@ -96,8 +96,6 @@ public:
             }
             prevRow = idealRow;
         }
-
-        int resCount = 0;
 
         for(int subset1Sum = 0; subset1Sum <= totalSum; ++subset1Sum) {
             int subset2Sum = totalSum - subset1Sum;
