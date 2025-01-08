@@ -1,3 +1,7 @@
+// Code to count the total number of partitions in which S1 is greater than or equal to S2 and the difference between S1 and S2 is equal to D ~ coded by Hiren
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 class TopDown {
     int solveWithMemo(vector<vector<int>>& dp, vector<int>& nums, int index, int target) {
         if(index == 0) {
@@ -39,6 +43,8 @@ public:
         return resCount;
     }
 };
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class BottomUp {
 public:
@@ -103,6 +109,8 @@ public:
         return resCount;
     }
 };
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Topics: Array | Dynamic Programming
 Link  : https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1
