@@ -22,7 +22,7 @@ class TopDown {
     }
     
 public:
-    // O(N*TS) & O(N*TS) : Where T = totalSum
+    // O(N*TS) & O(N*TS) : Where TS = totalSum
     bool canPartition(vector<int>& nums) {
         n = nums.size();
         int totalSum = accumulate(begin(nums), end(nums), 0);
