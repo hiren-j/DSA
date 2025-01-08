@@ -1,4 +1,4 @@
-// Code to count the total number of partitions in which S1 is greater than or equal to S2 and the difference between S1 and S2 is equal to D ~ coded by Hiren
+// Code to find the number of different expressions that you can build using specified way such that they evaluates to target ~ coded by Hiren
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
