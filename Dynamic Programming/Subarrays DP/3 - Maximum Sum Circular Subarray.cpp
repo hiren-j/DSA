@@ -113,7 +113,7 @@ class BottomUp {
     }
 
 public:
-    // Method to find the maximum sum of any subarray, using recursion with memoization - O(N) & O(N)
+    // Method to find the maximum sum of any subarray, using tabulation :-
     int maxSubarraySumCircular(vector<int>& nums) {
         n = nums.size();
         int maxSum = solveUsing1DTable(nums, true);
