@@ -55,11 +55,11 @@ class TopDown {
     
 public:
     // Method to count total number of valid groupings, using recursion with memoization - O(N*N*901) & O(N*901) 
-	int countValidGroupings(string& str) {
-	    n = str.size();
-	    vector<vector<int>> dp(n, vector<int>(901, -1));
-	    return solveWithMemo(dp, str, 0, 0);
-	}
+    int countValidGroupings(string& str) {
+	n = str.size();
+	vector<vector<int>> dp(n, vector<int>(901, -1));
+	return solveWithMemo(dp, str, 0, 0);
+    }
 };
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -67,30 +67,30 @@ public:
 class BottomUp {
 public:
     // Method to count total number of valid groupings, using 2D tabulation - O(N*N*901) & O(N*901)
-	int countValidGroupings(string& str) {
-	    int n = str.size();
+    int countValidGroupings(string& str) {
+	int n = str.size();
 	    
-	    vector<vector<int>> dp(n + 1, vector<int>(901, 0));
+	vector<vector<int>> dp(n + 1, vector<int>(901, 0));
 	    
         // Initialize the edge case
-	    for(int prevSum = 0; prevSum <= 900; ++prevSum)
-	        dp[n][prevSum] = 1;
+	for(int prevSum = 0; prevSum <= 900; ++prevSum)
+	    dp[n][prevSum] = 1;
 	        
-	   for(int startIndex = n-1; startIndex >= 0; --startIndex) {
-	       for(int prevSum = 900; prevSum >= 0; --prevSum) {
-                int count = 0, currentSum = 0;
-                for(int index = startIndex; index < n; ++index) {
-                    currentSum += str[index] - '0';
-                    if(prevSum <= currentSum) {
-                        count += dp[index + 1][currentSum];
-                    }
-                }
-                dp[startIndex][prevSum] = count;
-	       }
-	   }
-	    
-	    return dp[0][0];
+	for(int startIndex = n-1; startIndex >= 0; --startIndex) {
+	    for(int prevSum = 900; prevSum >= 0; --prevSum) {
+                 int count = 0, currentSum = 0;
+        	 for(int index = startIndex; index < n; ++index) {
+                     currentSum += str[index] - '0';
+                     if(prevSum <= currentSum) {
+                         count += dp[index + 1][currentSum];
+                     }
+		 }
+                 dp[startIndex][prevSum] = count;
+	    }
 	}
+	    
+	return dp[0][0];
+    }
 };
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
