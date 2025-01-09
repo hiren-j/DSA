@@ -18,7 +18,7 @@ class TopDown {
     
     // O(N^N) & O(N)
     int solveWithoutMemo(string& str, int startIndex, int prevSum) {
-        if(startIndex == n) // Edge case: If no values are left, then you've created a valid grouping
+        if(startIndex == n) // Edge case: If no values are left, then you've created one valid grouping
             return 1;  
                     
         int count = 0, currentSum = 0;
@@ -35,7 +35,7 @@ class TopDown {
 
     // O(N*N*901) & O(N*901 + N)
     int solveWithMemo(vector<vector<int>>& dp, string& str, int startIndex, int prevSum) {
-        if(startIndex == n) // Edge case: If no values are left, then you've created a valid grouping
+        if(startIndex == n) // Edge case: If no values are left, then you've created one valid grouping
             return 1;  
             
         if(dp[startIndex][prevSum] != -1)
