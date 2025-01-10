@@ -130,13 +130,13 @@ public:
         int n = nums.size(); 
 
         // Initialize the edge case
-        int nextRow_0 = INT_MIN;
         int nextRow_1 = 0;
+        int nextRow_0 = INT_MIN;
 
         // Fill the rest of the table
         for(int index = n-1; index >= 0; --index) {
-            int idealRow_0 = -1;
             int idealRow_1 = -1;
+            int idealRow_0 = -1;
             for(int prevPick = 1; prevPick >= 0; --prevPick) {
                 if(prevPick) {
                     int pickCurrSubarr = nums[index] + nextRow_1;
@@ -149,8 +149,8 @@ public:
                     idealRow_0 = max(startNewFromNext, startNewFromCurr);
                 }
             }
-            nextRow_0 = idealRow_0;
             nextRow_1 = idealRow_1;
+            nextRow_0 = idealRow_0;
         }
 
         // Return the result value
