@@ -52,7 +52,7 @@ public:
         int maxSum = solveWithMemo(dp1, nums, 0, false, true);
         if(maxSum <= 0) return maxSum; // If all the numbers are negative or 0 then return the maximum sum you've got
         vector<vector<int>> dp2(n, vector<int>(2, -1)); 
-        int minSum = solveWithMemo(dp2, nums, 0, false, false);
+        int minSum   = solveWithMemo(dp2, nums, 0, false, false);
         int totalSum = accumulate(begin(nums), end(nums), 0);
         return max(maxSum, totalSum - minSum);
     }
@@ -63,7 +63,7 @@ public:
 class BottomUp {
     int n;
 
-    // O(N) & O(N)
+    // O(N*2) & O(N*2)
     int solveUsing2DTable(vector<int>& nums, bool findMaxSum) {
         vector<vector<int>> dp(n + 1, vector<int>(2, -1));
         dp[n][1] = 0;
@@ -87,7 +87,7 @@ class BottomUp {
         return dp[0][false];
     }
 
-    // O(N) & O(1)
+    // O(N*2) & O(2*2)
     int solveUsing1DTable(vector<int>& nums, bool findMaxSum) {
         vector<int> nextRow(2, -1), idealRow(2, -1);
         nextRow[1] = 0;
@@ -112,13 +112,40 @@ class BottomUp {
         return nextRow[false];
     }
 
+    // O(N*2) & O(1)
+    int solveInPlace(vector<int>& nums, bool findMaxSum) {
+        int nextRow_1 = 0;
+        int nextRow_0 = (findMaxSum ? INT_MIN : INT_MAX);
+
+        for(int index = n-1; index >= 0; --index) {
+            int idealRow_1 = -1;
+            int idealRow_0 = -1;
+            for(int prevPick = 1; prevPick >= 0; --prevPick) {
+                if(prevPick) {
+                    int pickCurrSubarr = nums[index] + nextRow_1;
+                    int stopHere = 0;
+                    idealRow_1 = (findMaxSum ? max(pickCurrSubarr, stopHere) : min(pickCurrSubarr, stopHere));
+                }
+                else {
+                    int startNewFromNext = nextRow_0;
+                    int startNewFromCurr = nums[index] + nextRow_1;
+                    idealRow_0 = (findMaxSum ? max(startNewFromNext, startNewFromCurr) : min(startNewFromNext, startNewFromCurr));
+                }
+            }
+            nextRow_1 = idealRow_1;
+            nextRow_0 = idealRow_0;
+        }
+
+        return nextRow_0;
+    }
+
 public:
     // Method to find the maximum sum of any subarray, using tabulation :-
     int maxSubarraySumCircular(vector<int>& nums) {
         n = nums.size();
-        int maxSum = solveUsing1DTable(nums, true);
+        int maxSum = solveInPlace(nums, true);
         if(maxSum <= 0) return maxSum; // If all the numbers are negative or 0 then return the maximum sum you've got
-        int minSum = solveUsing1DTable(nums, false);
+        int minSum   = solveInPlace(nums, false);
         int totalSum = accumulate(begin(nums), end(nums), 0);
         return max(maxSum, totalSum - minSum);
     }
@@ -143,11 +170,11 @@ public:
 
             // Calculate maximum subarray sum (Kadane's algorithm for maximum sum subarray)
             maxEnding = max(maxEnding + num, num);
-            maxSum = max(maxSum, maxEnding);
+            maxSum    = max(maxSum, maxEnding);
 
             // Calculate minimum subarray sum (Kadane's algorithm for minimum sum subarray)
             minEnding = min(minEnding + num, num);
-            minSum = min(minSum, minEnding);
+            minSum    = min(minSum, minEnding);
         }
 
         // If all the numbers are negative or 0 then return the maximum sum you've got
