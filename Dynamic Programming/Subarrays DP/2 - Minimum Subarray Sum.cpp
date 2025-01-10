@@ -173,7 +173,7 @@ public:
 
         for(int num : nums) {
             minEnding = min(minEnding + num, num);
-            result = min(result, minEnding);     
+            result    = min(result, minEnding);     
         }
 
         return result;
