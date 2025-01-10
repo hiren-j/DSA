@@ -124,6 +124,38 @@ public:
         // Return the result value
         return nextRow[false];
     }
+
+    // #3 Method to find the maximum sum of a subarray, using constant auxiliary space - O(N*2) & O(1)
+    int minSubArray_V3(vector<int>& nums) {
+        int n = nums.size(); 
+
+        // Initialize the edge case
+        int nextRow_1 = 0;
+        int nextRow_0 = INT_MAX;
+
+        // Fill the rest of the table
+        for(int index = n-1; index >= 0; --index) {
+            int idealRow_1 = -1;
+            int idealRow_0 = -1;
+            for(int prevPick = 1; prevPick >= 0; --prevPick) {
+                if(prevPick) {
+                    int pickCurrSubarr = nums[index] + nextRow_1;
+                    int stopHere = 0;
+                    idealRow_1 = min(pickCurrSubarr, stopHere);
+                }
+                else {
+                    int startNewFromNext = nextRow_0;
+                    int startNewFromCurr = nums[index] + nextRow_1;
+                    idealRow_0 = min(startNewFromNext, startNewFromCurr);
+                }
+            }
+            nextRow_1 = idealRow_1;
+            nextRow_0 = idealRow_0;
+        }
+
+        // Return the result value
+        return nextRow_0;
+    }
 };
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
