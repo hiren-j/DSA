@@ -204,5 +204,6 @@ int main() {
 }
 /*
     Topics: Linked List | Simulation
-    Link: https://leetcode.com/problems/merge-nodes-in-between-zeros/description/
+    Link  : https://leetcode.com/problems/merge-nodes-in-between-zeros/description/
+    New Solutions Created By Me: https://leetcode.com/problems/merge-nodes-in-between-zeros/solutions/4381715/bruteoptimal-3solutions-self-explanatory-0d0r/
 */
