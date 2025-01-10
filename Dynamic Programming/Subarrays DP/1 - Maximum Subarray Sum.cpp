@@ -173,7 +173,7 @@ public:
 
         for(int num : nums) {
             maxEnding = max(maxEnding + num, num);
-            result = max(result, maxEnding);     
+            result    = max(result, maxEnding);     
         }
 
         return result;
