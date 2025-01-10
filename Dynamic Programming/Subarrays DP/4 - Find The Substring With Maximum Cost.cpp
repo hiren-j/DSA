@@ -115,27 +115,27 @@ class BottomUp {
 
     // O(N*2) & O(1)
     int solveInPlace(const string& s) {
-        int nextFalse  = 0, nextTrue  = 0;
-        int idealFalse = 0, idealTrue = 0;
+        int nextRow_0  = 0, nextRow_1  = 0;
+        int idealRow_0 = 0, idealRow_1 = 0;
 
         for(int index = n-1; index >= 0; --index) {
             for(int prevPick = 1; prevPick >= 0; --prevPick) {
                 if(prevPick) {
-                    int pickCurrSubarr = values[s[index] - 'a'] + nextTrue;
+                    int pickCurrSubarr = values[s[index] - 'a'] + nextRow_1;
                     int stopHere = 0;
-                    idealTrue = max(pickCurrSubarr, stopHere);
+                    idealRow_1 = max(pickCurrSubarr, stopHere);
                 }
                 else {
-                    int startNewFromNext = nextFalse;
-                    int startNewFromCurr = values[s[index] - 'a'] + nextTrue;
-                    idealFalse = max(startNewFromNext, startNewFromCurr);
+                    int startNewFromNext = nextRow_0;
+                    int startNewFromCurr = values[s[index] - 'a'] + nextRow_1;
+                    idealRow_0 = max(startNewFromNext, startNewFromCurr);
                 }
             }
-            nextFalse = idealFalse;
-            nextTrue  = idealTrue;
+            nextRow_0 = idealRow_0;
+            nextRow_1 = idealRow_1;
         }
 
-        return idealFalse;
+        return idealRow_0;
     }
 
 public:
