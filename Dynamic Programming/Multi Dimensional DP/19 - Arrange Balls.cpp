@@ -13,7 +13,7 @@ class TopDown {
     const int MOD = 1e9+7;
 
     // O(3^(P*Q*R)) & O(P+Q+R)
-    int solveWithMemo(vector<vector<vector<vector<int>>>>& dp, int P, int Q, int R, int prevType) {
+    int solveWithoutMemo(int P, int Q, int R, int prevType) {
         // Edge case: If you've created a valid arrangement by picking all the type of balls then return 1
         if(P == 0 && Q == 0 && R == 0)
             return 1;
@@ -22,19 +22,14 @@ class TopDown {
         if(P < 0 || Q < 0 || R < 0)
             return 0;
 
-        // Memoization table: If the current state is already computed then return the computed value 
-        if(dp[P][Q][R][prevType] != -1)
-            return dp[P][Q][R][prevType]; 
-            
         int count = 0;
 
         // There are three possibilities to take care before picking any type of ball
-        if(prevType != 1) count = solveWithMemo(dp, P-1, Q, R, 1);                 // If previously not picked then pick a ball of type P
-        if(prevType != 2) count = (count + solveWithMemo(dp, P, Q-1, R, 2)) % MOD; // If previously not picked then pick a ball of type Q
-        if(prevType != 3) count = (count + solveWithMemo(dp, P, Q, R-1, 3)) % MOD; // If previously not picked then pick a ball of type R
+        if(prevType != 1) count = solveWithoutMemo(P-1, Q, R, 1);                 // If previously not picked then pick a ball of type P
+        if(prevType != 2) count = (count + solveWithoutMemo(P, Q-1, R, 2)) % MOD; // If previously not picked then pick a ball of type Q
+        if(prevType != 3) count = (count + solveWithoutMemo(P, Q, R-1, 3)) % MOD; // If previously not picked then pick a ball of type R
 
-        // Store the result value to the memoization table and then return it
-        return dp[P][Q][R][prevType] = count;
+        return count;
     }
 
     // O(3*P*Q*R*4) & O(P*Q*R*4 + P+Q+R)
@@ -58,7 +53,6 @@ class TopDown {
         if(prevType != 2) count = (count + solveWithMemo(dp, P, Q-1, R, 2)) % MOD; // If previously not picked then pick a ball of type Q
         if(prevType != 3) count = (count + solveWithMemo(dp, P, Q, R-1, 3)) % MOD; // If previously not picked then pick a ball of type R
 
-        // Store the result value to the memoization table and then return it
         return dp[P][Q][R][prevType] = count;
     }
 
