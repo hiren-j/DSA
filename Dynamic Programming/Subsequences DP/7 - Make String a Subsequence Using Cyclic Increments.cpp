@@ -175,11 +175,10 @@ public:
 
         while(i < n && j < m) {
             char nextChar = (s1[i] == 'z') ? 'a' : s1[i] + 1;
-
-            if(s1[i] == s2[j] || nextChar == s2[j]) 
-                i++, j++;
-            else
-                i++;
+            if(s1[i] == s2[j] || nextChar == s2[j]) {
+                j++;
+            }
+            i++;
         }
 
         return j == m;
