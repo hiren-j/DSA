@@ -42,7 +42,6 @@ class TopDown {
         if(P < 0 || Q < 0 || R < 0)
             return 0;
 
-        // Memoization table: If the current state is already computed then return the computed value 
         if(dp[P][Q][R][prevType] != -1)
             return dp[P][Q][R][prevType]; 
             
