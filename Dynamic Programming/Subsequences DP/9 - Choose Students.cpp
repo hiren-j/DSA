@@ -49,7 +49,7 @@ private:
 
 class TopDown_V2 {
 public:
-    // O(TS*TS*CL) & O(TS*CL) : Where TS = totalStudents, CL = chooseLimit
+    // O(TS*TS*CL) & O(TS*CL)
     int numWays(int totalStudents, int chooseLimit) {
     	vector<vector<int>> dp(totalStudents + 1, vector<int>(chooseLimit + 1, -1));
     	return solveWithMemo(dp, totalStudents, 0, chooseLimit);
