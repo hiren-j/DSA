@@ -78,12 +78,12 @@ private:
     // O(TS^TS) & O(TS)
     int solveWithoutMemo(int totalStudents, int startStudent, int chooseLimit) {
     	if(chooseLimit == 0) 
-    		return 1; // Edge case when you've chosen students with specified limit then return 1
+    	    return 1; // Edge case when you've chosen students with specified limit then return 1
     
         int count = 0;
 
         for(int student = startStudent; student < totalStudents; ++student)
-        	count += solveWithoutMemo(totalStudents, student + 1, chooseLimit - 1);
+            count += solveWithoutMemo(totalStudents, student + 1, chooseLimit - 1);
     
     	return count;
     }
