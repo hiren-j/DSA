@@ -14,13 +14,13 @@ private:
     // O(2*TS*CL) & O(TS*CL + TS)
     int solveWithMemo(vector<vector<int>>& dp, int totalStudents, int student, int chooseLimit) {
     	if(chooseLimit == 0) 
-    		return 1; // Edge case when you've chosen students with specified limit then return 1
+    	return 1; // Edge case when you've chosen students with specified limit then return 1
     
     	if(student == totalStudents)
-    		return 0; // Edge case when all the students are exhausted then return 0
+    	return 0; // Edge case when all the students are exhausted then return 0
 
     	if(dp[student][chooseLimit] != -1)
-    		return dp[student][chooseLimit];
+    	return dp[student][chooseLimit];
 
         // There are always two possibilities at each student
     	int currSkip   = solveWithMemo(dp, totalStudents, student + 1, chooseLimit);     // Is to skip it
@@ -32,10 +32,10 @@ private:
     // O(2^TS) & O(TS)
     int solveWithoutMemo(int totalStudents, int student, int chooseLimit) {
     	if(chooseLimit == 0) 
-    		return 1; // Edge case when you've chosen students with specified limit then return 1
+    	return 1; // Edge case when you've chosen students with specified limit then return 1
     
     	if(student == totalStudents)
-    		return 0; // Edge case when all the students are exhausted then return 0
+    	return 0; // Edge case when all the students are exhausted then return 0
 
         // There are always two possibilities at each student
     	int currSkip   = solveWithoutMemo(totalStudents, student + 1, chooseLimit);     // Is to skip it
