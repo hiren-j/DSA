@@ -67,6 +67,7 @@ private:
             for(int j = 0; j <= n-1; ++j) {
                 if(i > j)
                     continue;
+                
                 for(int isXTurn = 0; isXTurn <= 1; ++isXTurn) {
                     if(isXTurn) {
                         int pickFromStart = coins[i] + (i+1 < n ? nextRow[j][false] : 0);
