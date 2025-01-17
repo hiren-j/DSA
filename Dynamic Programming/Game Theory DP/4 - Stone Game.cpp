@@ -104,10 +104,8 @@ public:
         for(int i = n-1; i >= 0; --i) {
             for(int j = 0; j <= n-1; ++j) {
                 for(int aliceTurn = 0; aliceTurn <= 1; ++aliceTurn) {
-                    if(i > j) {
-                        currRow[j][aliceTurn] = 0;
+                    if(i > j) 
                         continue;
-                    }
                     
                     if(aliceTurn) {
                         int takeFromStart = piles[i] + (i+1 < n ? nextRow[j][false] : 0);
