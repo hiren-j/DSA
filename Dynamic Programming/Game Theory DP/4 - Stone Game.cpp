@@ -81,8 +81,8 @@ public:
                         dp[i][j][aliceTurn] = max(takeFromStart, takeFromEnd);
                     }
                     else {
-                        int takeFromStart = (i+1 < n ? dp[i+1][j][true] : INT_MAX);
-                        int takeFromEnd   = (j-1 >= 0 ? dp[i][j-1][true] : INT_MAX);
+                        int takeFromStart = (i+1 < n ? dp[i+1][j][true] : 0);
+                        int takeFromEnd   = (j-1 >= 0 ? dp[i][j-1][true] : 0);
                         dp[i][j][aliceTurn] = min(takeFromStart, takeFromEnd);
                     }
                 }
@@ -115,8 +115,8 @@ public:
                         currRow[j][aliceTurn] = max(takeFromStart, takeFromEnd);
                     }
                     else {
-                        int takeFromStart = (i+1 < n ? nextRow[j][true] : INT_MAX);
-                        int takeFromEnd   = (j-1 >= 0 ? currRow[j-1][true] : INT_MAX);
+                        int takeFromStart = (i+1 < n ? nextRow[j][true] : 0);
+                        int takeFromEnd   = (j-1 >= 0 ? currRow[j-1][true] : 0);
                         currRow[j][aliceTurn] = min(takeFromStart, takeFromEnd);
                     }
                 }
