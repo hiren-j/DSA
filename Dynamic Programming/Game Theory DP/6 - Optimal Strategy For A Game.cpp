@@ -57,7 +57,6 @@ private:
         }
     }
 };
-// Note: This solution will lead to time limit exceed
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -91,7 +90,6 @@ public:
         
         return dp[0][n-1][true];
     }
-    // Note: This solution will lead to time limit exceed
 
     // #2 Method to find the maximum amount of money alice can win, using 2D tabulation - O(N^2) & O(N)
     LL maximumAmount_V2(int n, vector<int>& coins) {
