@@ -63,42 +63,14 @@ private:
 
 class BottomUp {
 public:
-    // #1 Method to check if Alice can win the game or not, using 3D tabulation - O(N^2) & O(N^2)
-    bool stoneGame_V1(vector<int>& piles) {
-        int n = piles.size();
-
-        vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(2, 0)));
-        
-        for(int i = n-1; i >= 0; --i) {
-            for(int j = 0; j <= n-1; ++j) {
-                if(i > j)
-                    continue;
-                    
-                for(int aliceTurn = 0; aliceTurn <= 1; ++aliceTurn) {
-                    if(aliceTurn) {
-                        int takeFromStart = piles[i] + (i+1 < n ? dp[i+1][j][false] : 0);
-                        int takeFromEnd   = piles[j] + (j-1 >= 0 ? dp[i][j-1][false] : 0);
-                        dp[i][j][aliceTurn] = max(takeFromStart, takeFromEnd);
-                    }
-                    else {
-                        int takeFromStart = (i+1 < n ? dp[i+1][j][true] : 0);
-                        int takeFromEnd   = (j-1 >= 0 ? dp[i][j-1][true] : 0);
-                        dp[i][j][aliceTurn] = min(takeFromStart, takeFromEnd);
-                    }
-                }
-            }
-        }
-
-        int aliceStones = dp[0][n-1][true];
-        int bobStones   = accumulate(begin(piles), end(piles), 0) - aliceStones;
-
-        return (aliceStones >= bobStones);
+    // Method to check if Alice can win the game or not, using tabulation :-
+    bool stoneGame(vector<int>& piles) {
+        return solveUsing2DTable(piles, piles.size());
     }
 
-    // #2 Method to check if Alice can win the game or not, using 2D tabulation - O(N^2) & O(N)
-    bool stoneGame_V2(vector<int>& piles) {
-        int n = piles.size();
-        
+private:
+    // O(N^2) & O(N)
+    bool solveUsing2DTable(vector<int>& piles, int n) {
         vector<vector<int>> nextRow(n, vector<int>(2, 0)), currRow(n, vector<int>(2, 0));
 
         for(int i = n-1; i >= 0; --i) {
@@ -123,6 +95,36 @@ public:
         }
 
         int aliceStones = currRow[n-1][true];
+        int bobStones   = accumulate(begin(piles), end(piles), 0) - aliceStones;
+
+        return (aliceStones >= bobStones);
+    }
+
+    // O(N^2) & O(N^2)
+    bool solveUsing3DTable(vector<int>& piles, int n) {
+        vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(2, 0)));
+        
+        for(int i = n-1; i >= 0; --i) {
+            for(int j = 0; j <= n-1; ++j) {
+                if(i > j)
+                    continue;
+                    
+                for(int aliceTurn = 0; aliceTurn <= 1; ++aliceTurn) {
+                    if(aliceTurn) {
+                        int takeFromStart = piles[i] + (i+1 < n ? dp[i+1][j][false] : 0);
+                        int takeFromEnd   = piles[j] + (j-1 >= 0 ? dp[i][j-1][false] : 0);
+                        dp[i][j][aliceTurn] = max(takeFromStart, takeFromEnd);
+                    }
+                    else {
+                        int takeFromStart = (i+1 < n ? dp[i+1][j][true] : 0);
+                        int takeFromEnd   = (j-1 >= 0 ? dp[i][j-1][true] : 0);
+                        dp[i][j][aliceTurn] = min(takeFromStart, takeFromEnd);
+                    }
+                }
+            }
+        }
+
+        int aliceStones = dp[0][n-1][true];
         int bobStones   = accumulate(begin(piles), end(piles), 0) - aliceStones;
 
         return (aliceStones >= bobStones);
